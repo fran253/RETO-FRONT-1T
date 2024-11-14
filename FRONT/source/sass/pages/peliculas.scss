@@ -1,0 +1,54 @@
+#Estrenos, #Accion, #Animacion, #Terror, #Aventura, #CienciaFiccion {
+    width: 100%;
+    max-width: 1300px;
+    margin-top: 1%;
+    margin-bottom: 10%;
+
+    h2 {
+        font-size: 70px;
+        margin-bottom: 1%;
+        color: #fff;
+    }
+
+    .owl-carousel {
+        margin-top: 1%;
+        display: grid;
+        gap: 40px;
+
+        .item {
+            height: 400px;
+            background: #446BCD;
+            margin: 10px;
+            color: #FFF;
+            text-align: center;
+            a {
+                color: #FFF;
+                text-decoration: none;
+
+                // &:hover {
+                //     color: #FFD700; 
+                // }
+            }
+
+            h3 {
+                height: 5%;
+                font-size: 16px;
+                align-content: start;
+            }
+        }
+
+        .pelicula {
+            height: 100%;
+            width: auto;
+            background-color: #446BCD;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
+            img {
+                width: 100%;
+                height: 90%;
+                display: block;
+            }
+        }
+    }
+}

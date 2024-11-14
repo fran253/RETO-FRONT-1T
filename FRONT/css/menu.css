@@ -1,0 +1,201 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #07172D;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Jura", sans-serif;
+}
+
+.banner #owl-demo {
+  height: 50%;
+}
+.banner #owl-demo .item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+  overflow: hidden;
+}
+.banner #owl-demo .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 65%;
+}
+
+.header {
+  margin-top: 4%;
+  margin-bottom: 1.5%;
+  padding: 1px 0;
+}
+.header .logo .logo-image {
+  width: 250px;
+  height: auto;
+}
+.header .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #FFC300;
+  display: flex;
+  justify-content: center;
+  padding: 19px 0;
+}
+.header .menu a {
+  color: black;
+  text-decoration: none;
+  font-size: 1rem;
+  font-family: "Jura", sans-serif;
+  margin: 0 60px;
+}
+.header .menu a:hover {
+  color: #333333;
+}
+
+.footer {
+  width: 100%;
+  background-color: #F6C80F;
+  color: #07172D;
+  padding: 40px 0;
+  text-align: center;
+}
+.footer .footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+.footer .footer-links .column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer .footer-links .column a {
+  color: #07172D;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.reserve-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: #F6C80F;
+  color: #07172D;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.banner {
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+}
+.banner .banner-image {
+  width: 100%;
+  height: auto;
+}
+
+.cartelera {
+  width: 100%;
+  max-width: 1300px;
+  text-align: center;
+  margin-top: 8%;
+  margin-bottom: 15%;
+}
+.cartelera h2 {
+  font-size: 100px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+.cartelera #owl-pelis {
+  margin-top: 5%;
+  display: grid;
+  gap: 40px;
+}
+.cartelera #owl-pelis .item {
+  height: 400px;
+  background: #446BCD;
+  margin: 10px;
+  color: #FFF;
+  text-align: center;
+}
+.cartelera #owl-pelis .item a {
+  color: #FFF;
+  text-decoration: none;
+}
+.cartelera #owl-pelis .item h3 {
+  height: 5%;
+  font-size: 16px;
+  align-content: start;
+}
+.cartelera #owl-pelis .pelicula {
+  height: 100%;
+  width: auto;
+  background-color: #446BCD;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.cartelera #owl-pelis .pelicula img {
+  width: 100%;
+  height: 90%;
+  display: block;
+}
+
+#Estrenos, #Accion, #Animacion, #Terror, #Aventura, #CienciaFiccion {
+  width: 100%;
+  max-width: 1300px;
+  margin-top: 1%;
+  margin-bottom: 10%;
+}
+#Estrenos h2, #Accion h2, #Animacion h2, #Terror h2, #Aventura h2, #CienciaFiccion h2 {
+  font-size: 70px;
+  margin-bottom: 1%;
+  color: #fff;
+}
+#Estrenos .owl-carousel, #Accion .owl-carousel, #Animacion .owl-carousel, #Terror .owl-carousel, #Aventura .owl-carousel, #CienciaFiccion .owl-carousel {
+  margin-top: 1%;
+  display: grid;
+  gap: 40px;
+}
+#Estrenos .owl-carousel .item, #Accion .owl-carousel .item, #Animacion .owl-carousel .item, #Terror .owl-carousel .item, #Aventura .owl-carousel .item, #CienciaFiccion .owl-carousel .item {
+  height: 400px;
+  background: #446BCD;
+  margin: 10px;
+  color: #FFF;
+  text-align: center;
+}
+#Estrenos .owl-carousel .item a, #Accion .owl-carousel .item a, #Animacion .owl-carousel .item a, #Terror .owl-carousel .item a, #Aventura .owl-carousel .item a, #CienciaFiccion .owl-carousel .item a {
+  color: #FFF;
+  text-decoration: none;
+}
+#Estrenos .owl-carousel .item h3, #Accion .owl-carousel .item h3, #Animacion .owl-carousel .item h3, #Terror .owl-carousel .item h3, #Aventura .owl-carousel .item h3, #CienciaFiccion .owl-carousel .item h3 {
+  height: 5%;
+  font-size: 16px;
+  align-content: start;
+}
+#Estrenos .owl-carousel .pelicula, #Accion .owl-carousel .pelicula, #Animacion .owl-carousel .pelicula, #Terror .owl-carousel .pelicula, #Aventura .owl-carousel .pelicula, #CienciaFiccion .owl-carousel .pelicula {
+  height: 100%;
+  width: auto;
+  background-color: #446BCD;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+#Estrenos .owl-carousel .pelicula img, #Accion .owl-carousel .pelicula img, #Animacion .owl-carousel .pelicula img, #Terror .owl-carousel .pelicula img, #Aventura .owl-carousel .pelicula img, #CienciaFiccion .owl-carousel .pelicula img {
+  width: 100%;
+  height: 90%;
+  display: block;
+}
+
+/*# sourceMappingURL=menu.css.map */

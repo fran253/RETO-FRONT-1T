@@ -1,0 +1,30 @@
+.footer {
+    width: 100%;
+    background-color: #F6C80F;
+    color: #07172D;
+    padding: 40px 0;
+    text-align: center;
+
+    .footer-links {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            a {
+                color: #07172D;
+                text-decoration: none;
+                font-weight: bold;
+            }
+        }
+    }
+    
+}
+
+
+
+

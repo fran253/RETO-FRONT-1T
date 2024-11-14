@@ -1,0 +1,185 @@
+/* Estilos generales */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #66A8FF;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Itim', sans-serif;
+}
+
+/* Encabezado */
+.header {
+    width: 100%;
+    background-color: #66A8FF;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+}
+
+.logo {
+    font-size: 2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    font-family: 'Itim', sans-serif;
+}
+
+/* Barra de Navegación (Navbar) */
+.menu {
+    width: 100%;
+    background-color: #FF7373;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    gap: 20%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+/* Banner */
+.banner {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    margin: 20px 0;
+}
+
+.banner-image {
+    width: 100%;
+    height: auto;
+}
+
+.reserve-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #FF7373;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+/* Cartelera */
+.cartelera {
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.cartelera h2 {
+    font-size: 150px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.peliculas {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+.pelicula {
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.pelicula img {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Footer */
+.footer {
+    width: 100%;
+    background-color: #333366;
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+.cartelera {
+    text-align: center;
+    background-color: #1e2a38; /* Fondo oscuro */
+    padding: 20px;
+    color: #ffffff;
+}
+
+.peliculas {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.pelicula-container {
+    width: 150px; /* Ajusta el tamaño según tus necesidades */
+    text-align: center;
+}
+
+.pelicula img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.pelicula-container h3 {
+    font-family: 'Jura', sans-serif; /* Usa la fuente Jura */
+    font-size: 14px;
+    font-weight: 400;
+    color: #cccccc; /* Color del texto */
+    text-transform: uppercase;
+    margin-top: 8px; /* Espacio entre la imagen y el título */
+    margin-bottom: 0;
+}
+
+
