@@ -1,0 +1,229 @@
+// Variables
+$background-color: #0f1a34;
+$text-color: #fff;
+$highlight-color: #fdd835;
+$seat-color: blue;
+$occupied-seat-color: red;
+$selected-seat-color: yellow;
+$button-color: #5673ea;
+$button-hover-color: #819aff;
+$gap-small: 10px;
+$gap-large: 20px;
+$font-size-small: 12px;
+$font-size-medium: 14px;
+$font-size-large: 18px;
+$font-size-xlarge: 32px;
+$max-width: 1000px;
+$footer-max-width: 1200px;
+
+// Logo
+.logo {
+  display: flex;
+  justify-content: center;
+  padding: $gap-large;
+
+  &__image {
+    max-width: 150px;
+    height: auto;
+  }
+}
+
+// Header
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__nav {
+    background-color: $highlight-color;
+    width: 100%;
+    padding: 15px 0;
+    text-align: center;
+  }
+}
+
+.nav__list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 15%;
+  flex-wrap: wrap;
+}
+
+.nav__link {
+  color: $background-color;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: $font-size-medium;
+  transition: color 0.3s ease;
+}
+
+// Main Content
+.main-content {
+  max-width: 100%;
+  padding: $gap-large;
+  text-align: center;
+}
+
+.movie-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+  max-width: $max-width;
+  margin: 0 auto;
+  align-items: start;
+}
+
+// Movie Poster
+.movie-poster img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.movie-details {
+  gap: $gap-small;
+  margin-top: 0;
+
+  p {
+    font-size: $font-size-large;
+    line-height: 1.4;
+  }
+}
+
+.movie-title {
+  font-size: $font-size-xlarge;
+  font-weight: bold;
+}
+
+// Movie Trailer
+.movie-trailer {
+  order: 3;
+  width: 100%;
+  text-align: center;
+
+  h2 {
+    font-size: $font-size-large;
+    margin-bottom: $gap-small;
+  }
+
+  iframe {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+  }
+}
+
+// Seat Legend
+.screen {
+  background-color: $button-color;
+  color: $text-color;
+  margin: $gap-large auto;
+  padding: $gap-small;
+  width: 80%;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.seating-area {
+  display: grid;
+  grid-template-columns: repeat(10, 30px);
+  gap: $gap-small;
+  justify-content: center;
+  margin: $gap-large 0;
+}
+
+.seat-item {
+  width: 30px;
+  height: 30px;
+  background-color: $seat-color;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &.occupied {
+    background-color: $occupied-seat-color;
+    cursor: not-allowed;
+  }
+
+  &.selected {
+    background-color: $selected-seat-color;
+  }
+}
+
+.purchase-button {
+  background-color: $button-color;
+  color: $text-color;
+  padding: $gap-small $gap-large;
+  border: none;
+  border-radius: 5px;
+  font-size: $font-size-large;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $button-hover-color;
+  }
+}
+
+// Footer
+.footer {
+  background-color: $highlight-color;
+  padding: 30px 15px;
+  text-align: center;
+  color: $background-color;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $gap-large;
+    max-width: $footer-max-width;
+    margin: 0 auto;
+
+    @media (min-width: 767px) {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 150px;
+    align-items: center;
+
+    @media (min-width: 767px) {
+      align-items: flex-start;
+    }
+  }
+
+  &__text {
+    font-size: $font-size-small;
+    color: $background-color;
+    margin: 0;
+    cursor: default;
+
+    &:hover {
+      color: #333;
+    }
+
+    @media (min-width: 767px) {
+      font-size: $font-size-medium;
+    }
+  }
+}
+
+// Media Queries
+@media (min-width: 767px) {
+  .nav__list {
+    gap: 30%;
+  }
+
+  .movie-details {
+    justify-content: space-between;
+    margin-top: 50%;
+    align-items: start;
+  }
+}
