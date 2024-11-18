@@ -25,12 +25,12 @@ document.addEventListener("DOMContentLoaded", function () {
                     itemDiv.classList.add("item");
 
                     itemDiv.innerHTML = `
-                        <a href="/detalle-pelicula/${pelicula.id}" class="pelicula-link">
-                            <div class="pelicula">
-                                <img src="${pelicula.imagen}" alt="${pelicula.nombre}">
-                                <h3>${pelicula.nombre}</h3>
-                            </div>
-                        </a>
+                    <a href="../html/PeliculaHorariosYSala.html?id=${pelicula.id}" class="pelicula-link">
+                        <div class="pelicula">
+                            <img src="${pelicula.imagen}" alt="${pelicula.nombre}">
+                            <h3>${pelicula.nombre}</h3>
+                        </div>
+                    </a>
                     `;
 
                     owlPelis.appendChild(itemDiv);

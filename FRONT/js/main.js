@@ -13,9 +13,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 const itemDiv = document.createElement("div");
                 itemDiv.classList.add("item");
 
-                // Añade un enlace alrededor de la imagen y el título
                 itemDiv.innerHTML = `
-                    <a href="/detalle-pelicula/${pelicula.id}" class="pelicula-link"> <!-- Enlace a la página de detalles -->
+                    <a href="../html/PeliculaHorariosYSala.html?=${pelicula.id}" class="pelicula-link"> <!-- Enlace a la página de detalles -->
                         <div class="pelicula">
                             <img src="${pelicula.imagen}" alt="${pelicula.nombre}">
                             <h3>${pelicula.nombre}</h3>
