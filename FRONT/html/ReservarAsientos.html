@@ -3,26 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalles de Película - Cinema Paradiso</title>
+    <title>Reservar Asientos - Cinema Paradiso</title>
     <link rel="stylesheet" href="../build/menu.css">
 </head>
 <body>
-
+    <!-- Logo -->
     <header class="header">
-        <div class="logo"><img src="../imgs/logo.png" alt="logo" class="logo-image"></div>
+        <div class="logo">
+            <img src="../imgs/logo.png" alt="logo" class="logo-image">
+        </div>
         <nav class="menu">
             <a href="../html/Peliculas.html">PELICULAS</a>
-            <a href="../html/main.html">MENU</a>
+            <a href="#">MENU</a>
             <a href="#">CINES</a>
         </nav>
     </header>
 
-    
     <main class="main-content">
-        <h1 class="movie-title">Monstruos vs aliens</h1>
+        <!-- Detalles de la Película -->
+        <h1 class="movie-title">Dune2</h1>
         <div class="movie-layout">
             <div class="movie-poster">
-                <img src="../imgs/Dune2.jpg" alt="Póster de MvsA" class="movie-poster-image">
+                <img src="../imgs/Dune2.jpg" alt="Póster de Dune2" class="movie-poster-image">
             </div>
             <div class="movie-details">
                 <p><strong>Cine:</strong> Nombre_Cine</p>
@@ -31,7 +33,7 @@
             <div class="movie-trailer">
                 <h2>Trailer</h2>
                 <iframe src="https://www.youtube.com/embed/VIDEO_ID" 
-                        title="Trailer de Sin Chan" 
+                        title="Trailer de Dune2" 
                         frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen>
@@ -39,9 +41,37 @@
             </div>
         </div>
 
-
+        <!-- Sección de Asientos -->
+        <div class="seating-section">
+            <h2>Selecciona tus asientos</h2>
+            
+            <!-- Leyenda de Asientos -->
+            <div class="seat-legend">
+                <div class="legend-item">
+                    <span class="seat-item free"></span> Libre
+                </div>
+                <div class="legend-item">
+                    <span class="seat-item occupied"></span> Ocupado
+                </div>
+                <div class="legend-item">
+                    <span class="seat-item selected"></span> Seleccionado
+                </div>
+                <div class="legend-item">
+                    <span class="seat-item vip"></span> VIP
+                </div>
+            </div>
+            
+            <!-- Pantalla -->
+            <div class="screen">Pantalla</div>
+            
+            <!-- Matriz de Asientos -->
+            <div id="seatingArea" class="seating-area"></div>
+            
+            <!-- Botón para Comprar -->
+            <button id="buySeatsButton" class="purchase-button">Comprar Asientos</button>
+        </div>
     </main>
-
+    
     <footer class="footer">
         <div class="footer__content">
             <div class="footer__column">
@@ -70,6 +100,7 @@
         </div>
     </footer>
 
-    <script src="../js/ReservaAsientos.js"></script>
+    <!-- Importación del script de asientos -->
+    <script src="../js/reservaasientos.js"></script>
 </body>
 </html>

@@ -113,43 +113,95 @@ $footer-max-width: 1200px;
   }
 }
 
-// Seat Legend
+// Leyenda de los asientos
+.seating-section {
+  text-align: center;
+  margin-top: $gap-large;
+
+  .seat-legend {
+    display: flex;
+    justify-content: center;
+    gap: $gap-large;
+    margin-bottom: $gap-large;
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      font-size: $font-size-medium;
+      color: $text-color;
+
+      .seat-item {
+        width: 20px;
+        height: 20px;
+        border-radius: 5px;
+        margin-right: $gap-small;
+
+        &.free {
+          background-color: $seat-color;
+        }
+
+        &.occupied {
+          background-color: $occupied-seat-color;
+        }
+
+        &.selected {
+          background-color: $selected-seat-color;
+        }
+
+        &.vip {
+          background-color: $highlight-color;
+        }
+      }
+    }
+  }
+}
+
+// Pantalla
 .screen {
   background-color: $button-color;
   color: $text-color;
   margin: $gap-large auto;
   padding: $gap-small;
-  width: 80%;
+  width: 50%;
   font-weight: bold;
   border-radius: 5px;
 }
 
+// Matriz de asientos
 .seating-area {
   display: grid;
   grid-template-columns: repeat(10, 30px);
   gap: $gap-small;
   justify-content: center;
   margin: $gap-large 0;
+
+  .seat-item {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &.free {
+      background-color: $seat-color;
+    }
+
+    &.occupied {
+      background-color: $occupied-seat-color;
+      cursor: not-allowed;
+    }
+
+    &.selected {
+      background-color: $selected-seat-color;
+    }
+
+    &:hover:not(.occupied) {
+      transform: scale(1.1);
+    }
+  }
 }
 
-.seat-item {
-  width: 30px;
-  height: 30px;
-  background-color: $seat-color;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-
-  &.occupied {
-    background-color: $occupied-seat-color;
-    cursor: not-allowed;
-  }
-
-  &.selected {
-    background-color: $selected-seat-color;
-  }
-}
-
+// Botón de Compra
 .purchase-button {
   background-color: $button-color;
   color: $text-color;
