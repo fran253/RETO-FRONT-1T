@@ -7,17 +7,15 @@ if (!seatingArea) {
     console.error("No se encontró el elemento seatingArea en el HTML.");
 }
 
-// Colores de cada estado de los asientos
 const seatColors = {
-    free: "#007bff",       // Azul para asientos libres
-    selected: "#ffc107",   // Amarillo para asientos seleccionados
-    sold: "#dc3545"        // Rojo para asientos vendidos
+    free: "#007bff",       
+    selected: "#ffc107",   
+    sold: "#dc3545",
+    vip: "#097969"        
 };
 
-// Array para almacenar el estado de cada asiento (100 asientos, todos libres inicialmente)
 const seats = Array(100).fill("free");
 
-// Generar la cuadrícula de asientos
 function generateSeats() {
     seatingArea.innerHTML = ""; // Limpiar el área antes de generar
     seats.forEach((state, index) => {
