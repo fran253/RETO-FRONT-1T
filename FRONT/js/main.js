@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 itemDiv.classList.add("item");
 
                 itemDiv.innerHTML = `
-                    <a href="../html/PeliculaHorariosYSala.html?=${pelicula.id}" class="pelicula-link"> <!-- Enlace a la página de detalles -->
+                    <a href="../html/PeliculaHorariosYSala.html?id=${pelicula.idPelicula}" class="pelicula-link"> <!-- Enlace a la página de detalles -->
                         <div class="pelicula">
                             <img src="${pelicula.imagen}" alt="${pelicula.nombre}">
                             <h3>${pelicula.nombre}</h3>

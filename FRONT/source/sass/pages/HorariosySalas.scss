@@ -7,7 +7,7 @@ $schedule-bg-color: #5673ea;
 $schedule-hover-color: #819aff;
 $gap-small: 10px;
 $gap-large: 20px;
-$max-width: 1200px;
+$max-width: 900px;
 $font-size-small: 12px;
 $font-size-medium: 14px;
 $font-size-large: 18px;
@@ -37,15 +37,18 @@ $font-size-xlarge: 22px;
 
   &__poster-details {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     gap: $gap-small;
     width: 100%;
+    font-family: "Jura", sans-serif;
+
+
 
     @media (min-width: 768px) {
       display: table;
       margin: 0 auto;
       max-width: $max-width;
+      grid-template-columns: repeat(1, 1fr);
+      
     }
 
     td {
@@ -55,12 +58,13 @@ $font-size-xlarge: 22px;
   }
 
   &__poster-image {
-    max-width: 200px;
     width: 100%;
     border-radius: 10px;
 
     @media (min-width: 768px) {
       width: auto;
+      grid-template-columns: repeat(1, 1fr);
+
     }
   }
 
@@ -76,6 +80,7 @@ $font-size-xlarge: 22px;
   text-align: left;
   margin-top: $gap-small;
   line-height: 1.8;
+  padding-left: 20px;
 
   &__title {
     font-size: $font-size-xlarge;
@@ -84,6 +89,7 @@ $font-size-xlarge: 22px;
     align-items: center;
     gap: $gap-small;
     justify-content: left;
+    margin-bottom: 30px;
   }
 
   &__rating {
@@ -95,7 +101,7 @@ $font-size-xlarge: 22px;
 
   &__info {
     font-size: $font-size-medium;
-    margin-bottom: 8px;
+    margin-bottom: 15px;
   }
 
   &__info-label {

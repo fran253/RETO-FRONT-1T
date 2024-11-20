@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Construir la URL de la API
-    const apiUrl = `https://localhost:7056/CinemaParaiso/Pelicula/${pelicula.id}`;
+    const apiUrl = `https://localhost:7056/CinemaParaiso/Pelicula/${peliculaId}`;
 
     // Realizar la solicitud a la API
     fetch(apiUrl)
@@ -27,18 +27,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 <table class="movie-container__poster-details">
                     <tr>
                         <td class="movie-container__poster-image">
-                            <img src="${pelicula.imagen}" alt="${pelicula.nombre}" width="150">
+                            <img src="${pelicula.imagen}" alt="${pelicula.nombre}" width="250" height="350">
                         </td>
                         <td class="movie-details">
                             <div class="movie-details__title">
                                 ${pelicula.nombre}
                                 <span class="movie-details__rating">${pelicula.edadMinima}</span>
                             </div>
-                            <p class="movie-details__info"><span class="movie-details__info-label">Director:</span>${pelicula.director}</p>
-                            <p class="movie-details__info"><span class="movie-details__info-label">Duración:</span>${pelicula.duracion}</p>
-                            <p class="movie-details__info"><span class="movie-details__info-label">Fecha Estreno:</span>${pelicula.fechaEstreno}</p>
-                            <p class="movie-details__info"><span class="movie-details__info-label">Actores:</span>${pelicula.actores}</p>
-                            <p class="movie-details__info"><span class="movie-details__info-label">Género:</span>${pelicula.idCategoriaPelicula}</p>
+                            <p class="movie-details__info"><span class="movie-details__info-label">Director:  <br></span>${pelicula.director}</p>
+                            <p class="movie-details__info"><span class="movie-details__info-label">Duración:  <br></span>${pelicula.duracion} minutos</p>
+                            <p class="movie-details__info"><span class="movie-details__info-label">Fecha Estreno:  <br></span>${pelicula.fechaEstreno}</p>
+                            <p class="movie-details__info"><span class="movie-details__info-label">Género:  <br></span>${pelicula.idCategoriaPelicula}</p>
                         </td>
                     </tr>
                 </table>
