@@ -13,6 +13,7 @@ $font-size-small: 12px;
 $font-size-medium: 14px;
 $font-size-large: 18px;
 $font-size-xlarge: 32px;
+$font-size-xxlarge: 36px; // Nueva variable para título grande
 $max-width: 1000px;
 $footer-max-width: 1200px;
 
@@ -80,13 +81,30 @@ $footer-max-width: 1200px;
   border-radius: 10px;
 }
 
+// Movie Details
 .movie-details {
-  gap: $gap-small;
-  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: $gap-large;
 
-  p {
+  .movie-info {
     font-size: $font-size-large;
-    line-height: 1.4;
+    line-height: 1.6;
+    text-align: center;
+
+    p {
+      margin: 0;
+    }
+
+    strong {
+      font-size: $font-size-xxlarge;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: $gap-large; // Espaciado extra entre Cine y Horario
+    }
   }
 }
 
