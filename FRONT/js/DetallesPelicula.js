@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Construir la URL de la API
-    const apiUrl = `https://localhost:7056/CinemaParaiso/Pelicula/${peliculaId}`;
+    const apiUrl = `http://localhost:5000/CinemaParaiso/Pelicula/${peliculaId}`;
 
     // Realizar la solicitud a la API
     fetch(apiUrl)
@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             </div>
                             <p class="movie-details__info"><span class="movie-details__info-label">Director:  <br></span>${pelicula.director}</p>
                             <p class="movie-details__info"><span class="movie-details__info-label">Duración:  <br></span>${pelicula.duracion} minutos</p>
-                            <p class="movie-details__info"><span class="movie-details__info-label">Fecha Estreno:  <br></span>${pelicula.fechaEstreno}</p>
+                            <p class="movie-details__info"><span class="movie-details__info-label">Fecha Estreno:  <br></span>${pelicula.fechaEstreno.replace("T"," ")}</p>
                             <p class="movie-details__info"><span class="movie-details__info-label">Género:  <br></span>${pelicula.idCategoriaPelicula}</p>
                         </td>
                     </tr>
@@ -51,4 +51,46 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error("Error:", error);
             movieContainer.innerHTML = "<p>Error al cargar los detalles de la película.</p>";
         });
-});
+        fetch(`http://localhost:5000/CinemaParaiso/Sesion/PeliculaSesion/${peliculaId}`)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Error al obtener los detalles de la película");
+        }
+        return response.json();
+    })
+    .then(sesiones => {
+        const scheduleSect = document.getElementsByClassName('schedule-section')[0];
+        scheduleSect.innerHTML = `<div class="schedule-section__grid">`;
+
+        sesiones.forEach(sesion => {
+            sesion.horarios.forEach(horario => {
+                scheduleSect.innerHTML += `
+                    <div class="schedule-section__item">
+                        <button onclick="guardarHorario(${horario.idHorario})">
+                            Hora: ${horario.hora.replace("T", " ")}<br>
+                            Sala: ${sesion.sala.nombreSala}
+                        </button>
+                    </div>
+                `;
+                
+//cambiar el onclick para poder desplazarnos de pagina y que nos funcione todo 
+
+
+            });
+        });
+
+        scheduleSect.innerHTML += `</div>`;
+    })
+    .catch(error => {
+        console.error("Error al cargar las sesiones:", error);
+    });
+
+// Función global para guardar el idHorario en localStorage
+function guardarHorario(idHorario) {
+    console.log("selectedHorarioId")
+    localStorage.setItem("selectedHorarioId", idHorario);
+}
+    
+})
+
+

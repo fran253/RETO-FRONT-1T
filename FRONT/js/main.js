@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const owlPelis = document.querySelector("#owl-pelis");
 
-    fetch("https://localhost:7056/CinemaParaiso/Pelicula")
+    fetch("http://localhost:5000/CinemaParaiso/Pelicula")
         .then(response => {
             if (!response.ok) {
                 throw new Error("Error al obtener las películas");
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 itemDiv.classList.add("item");
 
                 itemDiv.innerHTML = `
-                    <a href="../html/PeliculaHorariosYSala.html?id=${pelicula.idPelicula}" class="pelicula-link"> <!-- Enlace a la página de detalles -->
+                    <a href="../html/PeliculaHorariosYSala.html?id=${pelicula.idPelicula}" class="pelicula-link"> 
                         <div class="pelicula">
                             <img src="${pelicula.imagen}" alt="${pelicula.nombre}">
                             <h3>${pelicula.nombre}</h3>

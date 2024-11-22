@@ -257,12 +257,25 @@ body {
 }
 
 .movie-details {
-  gap: 10px;
-  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
 }
-.movie-details p {
+.movie-details .movie-info {
   font-size: 18px;
-  line-height: 1.4;
+  line-height: 1.6;
+  text-align: center;
+}
+.movie-details .movie-info p {
+  margin: 0;
+}
+.movie-details .movie-info strong {
+  font-size: 36px;
+}
+.movie-details .movie-info:not(:last-child) {
+  margin-bottom: 20px;
 }
 
 .movie-title {
@@ -529,6 +542,11 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
 }
+@media (min-width: 768px) {
+  .schedule-section__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 .schedule-section__item {
   background-color: #5673ea;
   color: #fff;
@@ -536,15 +554,20 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 10px;
+  padding: 20px;
   border-radius: 5px;
   font-size: 14px;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 .schedule-section__item:hover {
   background-color: #819aff;
+  transform: scale(1.05);
+}
+.schedule-section__item:active {
+  background-color: #4e71ff;
+  transform: scale(0.95);
 }
 
 .footer {
