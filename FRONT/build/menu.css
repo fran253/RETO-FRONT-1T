@@ -542,11 +542,6 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
 }
-@media (min-width: 768px) {
-  .schedule-section__grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
 .schedule-section__item {
   background-color: #5673ea;
   color: #fff;
@@ -554,20 +549,15 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 10px;
   border-radius: 5px;
   font-size: 14px;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease;
 }
 .schedule-section__item:hover {
   background-color: #819aff;
-  transform: scale(1.05);
-}
-.schedule-section__item:active {
-  background-color: #4e71ff;
-  transform: scale(0.95);
 }
 
 .footer {
@@ -631,6 +621,86 @@ body {
   .nav__list {
     gap: 30%;
   }
+}
+.contenedor__pago {
+  border: 5px solid #F6C80F;
+  border-radius: 15px;
+  padding: 30px;
+  width: 600px;
+  background-color: #002244;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10%;
+}
+
+.imagenes__pago {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.imagen__pago {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 200px;
+  height: 100px;
+  border: 3px solid #ffcc00; /* Color amarillo inicial */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.imagen__pago img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.imagen__pago.activo {
+  border-color: #446BCD; /* Cambia a rosa cuando se selecciona */
+}
+
+.aceptar__pago {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.aceptar__pago input[type=checkbox] {
+  margin-right: 15px;
+  width: 20px;
+  height: 20px;
+}
+.aceptar__pago label {
+  font-size: 16px;
+  color: #ffcc00;
+}
+
+.total__pago {
+  background-color: #336699;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  text-align: center;
+}
+.total__pago p {
+  margin: 0;
+  color: #e6e6e6;
+}
+.total__pago p:last-child {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.total__pago button {
+  background-color: #0000ff;
+  color: #ffcc00;
+  border: none;
+  padding: 15px 30px;
+  font-size: 18px;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=menu.css.map */
