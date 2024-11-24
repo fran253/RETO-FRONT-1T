@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Construir la URL de la API
-    const apiUrl = `http://localhost:5000/CinemaParaiso/Pelicula/${peliculaId}`;
+    const apiUrl = `https://localhost:7090/CinemaParaiso/Pelicula/${peliculaId}`;
 
     // Realizar la solicitud a la API
     fetch(apiUrl)
@@ -24,34 +24,43 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(pelicula => {
             // Mostrar los detalles de la película
             movieContainer.innerHTML = `
-                <table class="movie-container__poster-details">
-                    <tr>
-                        <td class="movie-container__poster-image">
-                            <img src="${pelicula.imagen}" alt="${pelicula.nombre}" width="250" height="350">
-                        </td>
-                        <td class="movie-details">
-                            <div class="movie-details__title">
-                                ${pelicula.nombre}
-                                <span class="movie-details__rating">${pelicula.edadMinima}</span>
-                            </div>
-                            <p class="movie-details__info"><span class="movie-details__info-label">Director:  <br></span>${pelicula.director}</p>
-                            <p class="movie-details__info"><span class="movie-details__info-label">Duración:  <br></span>${pelicula.duracion} minutos</p>
-                            <p class="movie-details__info"><span class="movie-details__info-label">Fecha Estreno:  <br></span>${pelicula.fechaEstreno.replace("T"," ")}</p>
-                            <p class="movie-details__info"><span class="movie-details__info-label">Género:  <br></span>${pelicula.idCategoriaPelicula}</p>
-                        </td>
-                    </tr>
-                </table>
+                <div class="movie-container">
+                    <div class="movie-container__poster-details">
+                        <div class="movie-container__poster-image">
+                        <img src="${pelicula.imagen}" alt="${pelicula.nombre}">
+                        </div>
+                        <div class="movie-container__details">
+                        <div class="movie-container__details__title">
+                            ${pelicula.nombre}
+                            <span>${pelicula.edadMinima}</span>
+                        </div>
+                        <p class="movie-container__details__info">
+                            <span class="movie-container__details__info-label">Director:</span> ${pelicula.director}
+                        </p>
+                        <p class="movie-container__details__info">
+                            <span class="movie-container__details__info-label">Duración:</span> ${pelicula.duracion} minutos
+                        </p>
+                        <p class="movie-container__details__info">
+                            <span class="movie-container__details__info-label">Fecha Estreno:</span> ${pelicula.fechaEstreno.replace("T", " ")}
+                        </p>
+                        <p class="movie-container__details__info">
+                            <span class="movie-container__details__info-label">Género:</span> ${pelicula.nombreCategoria}
+                        </p>
+                        </div>
+                    </div>
                 <div class="movie-container__synopsis">
                     <h3>Sinopsis</h3>
                     <p>${pelicula.descripcion}</p>
                 </div>
+                </div>
+
             `;
         })
         .catch(error => {
             console.error("Error:", error);
             movieContainer.innerHTML = "<p>Error al cargar los detalles de la película.</p>";
         });
-        fetch(`http://localhost:5000/CinemaParaiso/Sesion/PeliculaSesion/${peliculaId}`)
+        fetch(`https://localhost:7090/CinemaParaiso/Sesion/Pelicula/${peliculaId}`)
     .then(response => {
         if (!response.ok) {
             throw new Error("Error al obtener los detalles de la película");
@@ -66,9 +75,9 @@ document.addEventListener("DOMContentLoaded", function () {
             sesion.horarios.forEach(horario => {
                 scheduleSect.innerHTML += `
                     <div class="schedule-section__item">
-                        <button onclick="guardarHorario(${horario.idHorario})">
+                        <button onclick="guardarHorario(${pelicula.idHorario})">
                             Hora: ${horario.hora.replace("T", " ")}<br>
-                            Sala: ${sesion.sala.nombreSala}
+                            Sala: ${horario.sala.nombreSala}
                         </button>
                     </div>
                 `;

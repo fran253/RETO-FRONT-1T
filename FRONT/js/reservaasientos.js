@@ -15,7 +15,7 @@ const seatColors = {
     sold: "#dc3545",
     vip: "#097969"        
 };
-fetch(`http://localhost:5000/CinemaParaiso/Horario/${idHorario}`)
+fetch(`http://localhost:7090/CinemaParaiso/Horario/${idHorario}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error("Error al obtener los datos de los asientos");
@@ -68,7 +68,7 @@ fetch(`http://localhost:5000/CinemaParaiso/Horario/${idHorario}`)
 
 
 
-fetch(`http://localhost:5000/CinemaParaiso/Sesion/${sesionId}`)
+fetch(`https://localhost:7090/CinemaParaiso/Sesion/${sesionId}`)
 .then(response => {
     if (!response.ok) {
         throw new Error("Error al obtener las películas");

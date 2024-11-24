@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const owlPelis = document.querySelector("#owl-pelis");
 
-    fetch("http://localhost:5000/CinemaParaiso/Pelicula")
+    fetch("https://localhost:7090/CinemaParaiso/Pelicula")
         .then(response => {
             if (!response.ok) {
                 throw new Error("Error al obtener las películas");

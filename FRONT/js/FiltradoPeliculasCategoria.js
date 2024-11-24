@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     categorias.forEach(categoria => {
         const owlPelis = document.querySelector(`#${categoria.id}`);
 
-        fetch(`http://localhost:5000/CinemaParaiso/Pelicula/categoria?idCategoriaPelicula=${categoria.categoriaId}`)
+        fetch(`https://localhost:7090/CinemaParaiso/Pelicula/categoria?idCategoriaPelicula=${categoria.categoriaId}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error("Error al obtener las películas");
