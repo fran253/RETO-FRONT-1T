@@ -1,7 +1,7 @@
 $background-color: #0f1a34;
 $text-color: #fff;
 $highlight-color: #F6C80F;
-$rating-color: #00c853;
+$rating-color: #F6C80F;
 $schedule-bg-color: #5673ea;
 $schedule-hover-color: #819aff;
 $shadow-color: rgba(0, 0, 0, 0.2);
@@ -82,6 +82,7 @@ $font-size-xlarge: 24px;
       gap: $gap-small;
 
       span {
+        color: #0f1a34;
         background-color: $rating-color;
         padding: 5px 10px;
         border-radius: 5px;
@@ -123,6 +124,46 @@ $font-size-xlarge: 24px;
         height: 3px;
         background-color: $highlight-color;
       }
+    }
+  }
+}
+
+.schedule-section {
+  margin-top: $gap-large;
+  width: 100%;
+
+  &__title {
+    font-size: $font-size-large;
+    font-weight: bold;
+    margin-bottom: $gap-large;
+    text-align: center;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: $gap-small;
+    justify-content: center; 
+    padding: $gap-small;
+  }
+
+  &__item {
+    background-color: $schedule-bg-color;
+    color: $text-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: $gap-small;
+    border-radius: 8px;
+    font-size: $font-size-medium;
+    font-weight: bold;
+
+
+    &:hover {
+      background-color: $schedule-hover-color;
+      transform: scale(1.05);
     }
   }
 }

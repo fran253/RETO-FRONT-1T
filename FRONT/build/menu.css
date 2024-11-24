@@ -509,7 +509,8 @@ body {
   gap: 10px;
 }
 .movie-container__details__title span {
-  background-color: #00c853;
+  color: #0f1a34;
+  background-color: #F6C80F;
   padding: 5px 10px;
   border-radius: 5px;
   font-size: 12px;
@@ -519,7 +520,7 @@ body {
 }
 .movie-container__details__info-label {
   font-weight: bold;
-  color: #fdd835;
+  color: #F6C80F;
 }
 .movie-container__synopsis {
   margin-top: 40px;
@@ -543,7 +544,42 @@ body {
   left: 0;
   width: 50px;
   height: 3px;
-  background-color: #fdd835;
+  background-color: #F6C80F;
+}
+
+.schedule-section {
+  margin-top: 40px;
+  width: 100%;
+}
+.schedule-section__title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-align: center;
+}
+.schedule-section__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  justify-content: center;
+  padding: 10px;
+}
+.schedule-section__item {
+  background-color: #5673ea;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.schedule-section__item:hover {
+  background-color: #819aff;
+  transform: scale(1.05);
 }
 
 .contenedor__pago {
