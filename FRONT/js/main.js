@@ -1,7 +1,8 @@
+import config from "./config.js"
 document.addEventListener("DOMContentLoaded", function () {
     const owlPelis = document.querySelector("#owl-pelis");
 
-    fetch("https://localhost:7090/CinemaParaiso/Pelicula")
+    fetch(`${config.API_ENDPOINT}/CinemaParaiso/Pelicula`)
         .then(response => {
             if (!response.ok) {
                 throw new Error("Error al obtener las películas");

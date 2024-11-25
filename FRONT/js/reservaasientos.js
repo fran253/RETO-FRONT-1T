@@ -1,3 +1,4 @@
+import config from "./config.js"
 // Referencias a la zona de asientos y al botón de compra
 const seatingArea = document.getElementById("seatingArea");
 const buySeatsButton = document.getElementById("buySeatsButton");
@@ -15,7 +16,7 @@ const seatColors = {
     sold: "#dc3545",
     vip: "#097969"        
 };
-fetch(`http://localhost:7090/CinemaParaiso/Horario/${idHorario}`)
+fetch(`${config.API_ENDPOINT}/CinemaParaiso/Horario/${idHorario}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error("Error al obtener los datos de los asientos");
@@ -68,7 +69,7 @@ fetch(`http://localhost:7090/CinemaParaiso/Horario/${idHorario}`)
 
 
 
-fetch(`https://localhost:7090/CinemaParaiso/Sesion/${sesionId}`)
+fetch(`${config.API_ENDPOINT}/CinemaParaiso/Sesion/${sesionId}`)
 .then(response => {
     if (!response.ok) {
         throw new Error("Error al obtener las películas");

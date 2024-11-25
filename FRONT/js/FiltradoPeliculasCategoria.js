@@ -1,3 +1,4 @@
+import config from "./config.js"
 document.addEventListener("DOMContentLoaded", function () {
     const categorias = [
             { id: "owl-pelis-estrenos", categoriaId: 1 },
@@ -12,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     categorias.forEach(categoria => {
         const owlPelis = document.querySelector(`#${categoria.id}`);
 
-        fetch(`https://localhost:7090/CinemaParaiso/Pelicula/categoria?idCategoriaPelicula=${categoria.categoriaId}`)
+        fetch(`${config.API_ENDPOINT}/CinemaParaiso/Pelicula/categoria?idCategoriaPelicula=${categoria.categoriaId}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error("Error al obtener las películas");

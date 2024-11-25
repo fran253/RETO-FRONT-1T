@@ -1,3 +1,4 @@
+import config from "./config.js"
 document.addEventListener("DOMContentLoaded", function () {
     const movieContainer = document.querySelector(".movie-container");
 
@@ -11,8 +12,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // usamos dos constantes para ambas urls
-    const apiUrl = `https://localhost:7090/CinemaParaiso/Pelicula/${peliculaId}`;
-    const apiSesionesUrl = `https://localhost:7090/CinemaParaiso/Sesion/Pelicula/${peliculaId}`;
+    const apiUrl = `${config.API_ENDPOINT}/CinemaParaiso/Pelicula/${peliculaId}`;
+    const apiSesionesUrl = `${config.API_ENDPOINT}/CinemaParaiso/Sesion/Pelicula/${peliculaId}`;
 
     let pelicula = null; // Declarar variable global para almacenar los datos de la película
     fetch(apiUrl)//usamos la primera url que se refiere a la pelicula seleccionada
