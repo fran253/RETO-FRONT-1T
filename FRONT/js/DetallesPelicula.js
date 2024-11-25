@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const apiUrl = `${config.API_ENDPOINT}/CinemaParaiso/Pelicula/${peliculaId}`;
     const apiSesionesUrl = `${config.API_ENDPOINT}/CinemaParaiso/Sesion/Pelicula/${peliculaId}`;
 
-    let pelicula = null; // Declarar variable global para almacenar los datos de la película
+    let pelicula = null; // Declarar variable global para almacenar los datos de la pelicula
     fetch(apiUrl)//usamos la primera url que se refiere a la pelicula seleccionada
         .then(response => {
             if (!response.ok) {
@@ -65,32 +65,41 @@ document.addEventListener("DOMContentLoaded", function () {
             movieContainer.innerHTML = "<p>Error al cargar los detalles de la película.</p>";
         });
 
-    function cargarSesiones() {
-        fetch(apiSesionesUrl) //usamos la url de la api que se refiere a los horarios de dicha pelicula (linea 15)
-            .then(response => response.json())
-            .then(sesiones => {
-                const scheduleSect = document.querySelector('.schedule-section__grid');
-                if (!scheduleSect) {
-                    console.error("Error: No se encontró el contenedor de horarios.");
-                    return;
-                }
-                sesiones.forEach(sesion => {
-                    sesion.horarios.forEach(horario => {
+        function cargarSesiones() {
+            fetch(apiSesionesUrl)
+                .then(response => response.json())
+                .then(sesiones => {
+                    const scheduleSect = document.querySelector('.schedule-section__grid');
+                    if (!scheduleSect) {
+                        console.error("Error: No se encontró el contenedor de horarios.");
+                        return;
+                    }
+        
+            
+                    // scheduleSect.innerHTML = "";
+        
+                    console.log("Sesiones recibidas:", sesiones);
+        
+                    sesiones.forEach(sesion => {
+                        const horario = sesion.horario;
+                        // Mostrar los detalles de los horarios
                         scheduleSect.innerHTML += `
-                            <a href="../html/ReservarAsientos.html?idPelicula=${pelicula.idPelicula}&idHorario=${horario.idHorario}" class="schedule-link">
+                            <a href="../html/ReservarAsientos.html?idPelicula=${sesion.pelicula.idPelicula}&idHorario=${horario.idHorario}" class="schedule-link">
                                 <div class="schedule-section__item">
-                                    <h3>${horario.hora.replace("T", " ")}</h3>
+                                    <h3>${horario.fechaInicio.replace("T", " ")}</h3>
                                     <p>Sala ${horario.sala.nombreSala}</p>
                                 </div>
                             </a>
                         `;
                     });
+                })
+                .catch(error => {
+                    console.error("Error al cargar las sesiones:", error);
                 });
-            })
-            .catch(error => {
-                console.error("Error al cargar las sesiones:", error);
-            });
-    }
+        }
+        
+        
+        
 
     // Función global para guardar el idHorario en localStorage
     function guardarHorario(idHorario) {

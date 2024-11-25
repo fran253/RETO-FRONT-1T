@@ -1,55 +1,106 @@
-import config from "./config.js"
-// Referencias a la zona de asientos y al botón de compra
-const seatingArea = document.getElementById("seatingArea");
-const buySeatsButton = document.getElementById("buySeatsButton");
-const sesionId  = localStorage.getItem('sesionId')
-const idHorario = localStorage.getItem("selectedHorarioId");
-
-// Verificar si seatingArea existe
-if (!seatingArea) {
-    console.error("No se encontró el elemento seatingArea en el HTML.");
-}
+import config from "./config.js";
 
 const seatColors = {
-    free: "#007bff",       
-    selected: "#ffc107",   
+    free: "#007bff",
+    selected: "#ffc107",
     sold: "#dc3545",
-    vip: "#097969"        
+    vip: "#097969"
 };
-fetch(`${config.API_ENDPOINT}/CinemaParaiso/Horario/${idHorario}`)
+
+// Obtener parámetros de la URL
+const params = new URLSearchParams(window.location.search);
+const idPelicula = params.get("idPelicula");
+const idHorario = params.get("idHorario");
+
+console.log("idPelicula:", idPelicula);
+console.log("idHorario:", idHorario);
+
+if (!idPelicula || !idHorario) {
+    console.error("Faltan parámetros en la URL.");
+} else {
+    const urlDetalles = `${config.API_ENDPOINT}/CinemaParaiso/Sesion/${idHorario}`;
+    const urlAsientos = `${config.API_ENDPOINT}/CinemaParaiso/Sesion/${idHorario}/Asientos`;
+    console.log("URL para detalles:", urlDetalles);
+    console.log("URL para asientos:", urlAsientos);
+
+    // Obtener detalles de la película y horario
+    fetch(urlDetalles)
         .then(response => {
             if (!response.ok) {
-                throw new Error("Error al obtener los datos de los asientos");
+                throw new Error("Error al obtener los detalles de la película y horario.");
             }
             return response.json();
         })
         .then(data => {
-            // Obtener el contenedor de la zona de asientos
+            console.log("Datos recibidos (detalles):", data);
+            const movieLayout = document.querySelector(".movie-layout");
+            if (!movieLayout) {
+                console.error("No se encontró el contenedor de detalles de la película.");
+                return;
+            }
+
+            const horario = data.horario;
+
+            if (!horario || !horario.sala) {
+                console.error("La estructura de los datos no contiene 'sala' o 'horario'.");
+                return;
+            }
+
+            movieLayout.innerHTML = `
+                <div class="movie-poster">
+                    <img src="${data.pelicula.imagen}" alt="Póster de ${data.pelicula.nombre}" class="movie-poster-image">
+                </div>
+                <div class="movie-details">
+                    <p><strong>Cine:</strong></p> 
+                    <p>${horario.sala.nombreSala}</p>
+                    <p><strong>Horario:</strong></p>
+                    <p>${horario.hora.replace("T", " ")}</p>
+                </div>
+                <div class="movie-trailer">
+                    <h2>Trailer</h2>
+                    <iframe 
+                        src="${data.pelicula.trailerUrl || ""}" 
+                        title="Trailer de ${data.pelicula.nombre}" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            `;
+        })
+        .catch(error => {
+            console.error("Error al cargar los detalles de la película y horario:", error);
+        });
+
+    // Obtener asientos para la sesión
+    fetch(urlAsientos)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Error al obtener los datos de los asientos.");
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log("Datos recibidos (asientos):", data);
             const seatingArea = document.getElementById("seatingArea");
             if (!seatingArea) {
                 console.error("No se encontró el elemento seatingArea en el HTML.");
                 return;
             }
 
-            // Generar los asientos dinámicamente
-            seatingArea.innerHTML = ""; // Limpiar el área antes de generar
+            seatingArea.innerHTML = "";
 
-            // Crear un array para los asientos
-            const seats = data.map(asiento => {
-                return {
-                    id: asiento.idAsiento,
-                    status: asiento.estado // Estado: "free", "sold", "selected", "vip"
-                };
-            });
+            const seats = data.map(asiento => ({
+                id: asiento.idAsiento,
+                status: asiento.estado.toLowerCase() // Asegurar que los estados sean en minúsculas
+            }));
 
-            // Crear el diseño de los asientos
             seats.forEach(asiento => {
                 const seatDiv = document.createElement("div");
                 seatDiv.className = "seat-item";
                 seatDiv.id = `seat-${asiento.id}`;
-                seatDiv.style.backgroundColor = seatColors[asiento.status];
+                seatDiv.style.backgroundColor = seatColors[asiento.status] || seatColors.free;
 
-                // Añadir evento de clic para cambiar el estado del asiento
                 seatDiv.addEventListener("click", () => {
                     if (asiento.status === "free") {
                         asiento.status = "selected";
@@ -66,40 +117,10 @@ fetch(`${config.API_ENDPOINT}/CinemaParaiso/Horario/${idHorario}`)
         .catch(error => {
             console.error("Error al cargar los asientos:", error);
         });
+}
 
 
 
-fetch(`${config.API_ENDPOINT}/CinemaParaiso/Sesion/${sesionId}`)
-.then(response => {
-    if (!response.ok) {
-        throw new Error("Error al obtener las películas");
-    }
-    return response.json();
-})
-.then(peliculas => {
-    peliculas.forEach(pelicula => {
-        const itemDiv = document.createElement("div");
-        itemDiv.classList.add("item");
-
-        itemDiv.innerHTML = `
-            <a href="../html/PeliculaHorariosYSala.html?id=${pelicula.idPelicula}" class="pelicula-link"> <!-- Enlace a la página de detalles -->
-                <div class="pelicula">
-                    <img src="${pelicula.imagen}" alt="${pelicula.nombre}">
-                    <h3>${pelicula.nombre}</h3>
-                </div>
-            </a>
-        `;
-
-        owlPelis.appendChild(itemDiv);
-    });
-
-    // Emitir evento personalizado cuando las películas están cargadas
-    document.dispatchEvent(new Event("peliculasCargadas"));
-})
-.catch(error => {
-    console.error("Error:", error);
-    owlPelis.innerHTML = "<p>Error al cargar las películas</p>";
-});
 
 /*function generateSeats() {
     seatingArea.innerHTML = ""; // Limpiar el área antes de generar
