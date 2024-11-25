@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
             { id: "owl-pelis-cienciaficcion", categoriaId: 4 },
             { id: "owl-pelis-accion", categoriaId: 5 },
             { id: "owl-pelis-animacion", categoriaId: 6 }
-        
         ];
 
     categorias.forEach(categoria => {

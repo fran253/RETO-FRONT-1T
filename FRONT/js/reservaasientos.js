@@ -16,7 +16,7 @@ const seatColors = {
     sold: "#dc3545",
     vip: "#097969"        
 };
-fetch(`${config.API_ENDPOINT}/CinemaParaiso/Horario/${idHorario}`)
+fetch(`${config.API_ENDPOINT}/CinemaParaiso/Sesion/Pelicula/${peliculaId}/Sesion/Horario/${horarioId}/Asientos`)
         .then(response => {
             if (!response.ok) {
                 throw new Error("Error al obtener los datos de los asientos");
@@ -68,30 +68,25 @@ fetch(`${config.API_ENDPOINT}/CinemaParaiso/Horario/${idHorario}`)
         });
 
 
-
-fetch(`${config.API_ENDPOINT}/CinemaParaiso/Sesion/${sesionId}`)
+fetch(`${config.API_ENDPOINT}/CinemaParaiso/Pelicula/${sesionId}`)
 .then(response => {
     if (!response.ok) {
         throw new Error("Error al obtener las películas");
     }
     return response.json();
 })
-.then(peliculas => {
-    peliculas.forEach(pelicula => {
+.then(sesion => {
         const itemDiv = document.createElement("div");
-        itemDiv.classList.add("item");
+        itemDiv.classList.add("movie-details");
 
         itemDiv.innerHTML = `
-            <a href="../html/PeliculaHorariosYSala.html?id=${pelicula.idPelicula}" class="pelicula-link"> <!-- Enlace a la página de detalles -->
-                <div class="pelicula">
-                    <img src="${pelicula.imagen}" alt="${pelicula.nombre}">
-                    <h3>${pelicula.nombre}</h3>
-                </div>
-            </a>
+            <p><strong>Cine: ${sesion}</strong></p> 
+                <p>Nombre_Cine</p>
+                <p><strong>Horario:</strong></p>
+                <p>Horario_Cine</p>
         `;
 
         owlPelis.appendChild(itemDiv);
-    });
 
     // Emitir evento personalizado cuando las películas están cargadas
     document.dispatchEvent(new Event("peliculasCargadas"));
