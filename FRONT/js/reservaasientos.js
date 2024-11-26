@@ -51,10 +51,9 @@ if (!idPelicula || !idHorario) {
                     <img src="${data.pelicula.imagen}" alt="Póster de ${data.pelicula.nombre}" class="movie-poster-image">
                 </div>
                 <div class="movie-details">
-                    <p><strong>Cine:</strong></p> 
-                    <p>${horario.sala.nombreSala}</p>
-                    <p><strong>Horario:</strong></p>
-                    <p>${horario.hora.replace("T", " ")}</p>
+                    <p><strong>${data.pelicula.nombre}</strong></p>
+                    <p><strong>Sala:</strong>  ${horario.sala.nombreSala}</p> 
+                    <p><strong>Horario:</strong>  ${horario.hora.replace("T", " ")}</p>
                 </div>
                 <div class="movie-trailer">
                     <h2>Trailer</h2>

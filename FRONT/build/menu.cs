@@ -71,7 +71,6 @@ body {
 .footer .footer-links {
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 40px;
 }
 .footer .footer-links .column {
@@ -84,89 +83,7 @@ body {
   text-decoration: none;
   font-weight: bold;
 }
-.footer .footer-links .column .logo_negro {
-  width: 100px;
-}
 
-.logo {
-  display: flex;
-  justify-content: center;
-  padding: 20px;
-}
-.logo__image {
-  max-width: 150px;
-  height: auto;
-}
-
-.header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.header__nav {
-  background-color: #fdd835;
-  width: 100%;
-  padding: 15px 0;
-  text-align: center;
-}
-
-.dropdown-menu {
-  position: fixed;
-  top: 70px;
-  left: 20px;
-  z-index: 1000;
-}
-.dropdown-menu .dropdown-button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
-.dropdown-menu .dropdown-button img {
-  width: 50px;
-  height: 50px;
-}
-.dropdown-menu .dropdown-content {
-  position: absolute;
-  padding-top: 60px;
-  padding-left: 0;
-  background-color: #0f1a34;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-.dropdown-menu .dropdown-content ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.dropdown-menu .dropdown-content ul li {
-  margin-bottom: 10px;
-}
-.dropdown-menu .dropdown-content ul li:last-child {
-  margin-bottom: 0;
-}
-.dropdown-menu .dropdown-content ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 14px;
-}
-.dropdown-menu .dropdown-content ul li a:hover {
-  color: #fdd835;
-}
-.dropdown-menu .hidden {
-  display: none;
-}
-
-@media (max-width: 768px) {
-  .dropdown-content {
-    width: 100%;
-    top: 50px;
-    left: 0;
-  }
-}
 .reserve-button {
   position: absolute;
   top: 20px;
@@ -237,14 +154,6 @@ body {
     font-size: 1rem;
   }
 }
-@media (max-width: 480px) {
-  .info-section {
-    padding-top: 10%;
-  }
-  .info-section .info-content .info-logo-text .info-description {
-    font-size: 0.9rem;
-  }
-}
 
 .cartelera {
   width: 100%;
@@ -304,21 +213,6 @@ body {
   }
   .cartelera #owl-pelis .pelicula img {
     height: 85%;
-  }
-}
-@media (max-width: 480px) {
-  .cartelera h2 {
-    font-size: 30px;
-  }
-  .cartelera #owl-pelis {
-    grid-template-columns: repeat(1, 1fr);
-    gap: 10px;
-  }
-  .cartelera #owl-pelis .item {
-    height: 550px;
-  }
-  .cartelera #owl-pelis .pelicula img {
-    height: 90%;
   }
 }
 
@@ -832,4 +726,4 @@ body {
   cursor: pointer;
 }
 
-/*# sourceMappingURL=menu.css.map */
+/*# sourceMappingURL=menu.cs.map */

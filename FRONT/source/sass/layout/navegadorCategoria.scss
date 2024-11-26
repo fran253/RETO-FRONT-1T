@@ -1,0 +1,113 @@
+// Variables
+$background-color: #0f1a34;
+$text-color: #fff;
+$highlight-color: #fdd835;
+$seat-color: blue;
+$occupied-seat-color: red;
+$selected-seat-color: yellow;
+$button-color: #5673ea;
+$button-hover-color: #819aff;
+$gap-small: 10px;
+$gap-large: 20px;
+$font-size-small: 12px;
+$font-size-medium: 14px;
+$font-size-large: 18px;
+$font-size-xlarge: 32px;
+$font-size-xxlarge: 36px;
+$max-width: 1000px;
+$footer-max-width: 1200px;
+
+// Logo
+.logo {
+  display: flex;
+  justify-content: center;
+  padding: $gap-large;
+
+  &__image {
+    max-width: 150px;
+    height: auto;
+  }
+}
+
+// Header
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__nav {
+    background-color: $highlight-color;
+    width: 100%;
+    padding: 15px 0;
+    text-align: center;
+  }
+}
+
+// Dropdown Menu
+.dropdown-menu {
+    position: fixed;
+    top: 70px;
+    left: 20px; 
+    z-index: 1000;
+  
+    .dropdown-button {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+  
+      img {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  
+    .dropdown-content {
+      position: absolute;
+      padding-top: 60px;
+      padding-left: 0;
+      background-color: $background-color;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      padding: $gap-large;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+  
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+  
+        li {
+          margin-bottom: $gap-small;
+  
+          &:last-child {
+            margin-bottom: 0;
+          }
+  
+          a {
+            color: $text-color;
+            text-decoration: none;
+            font-size: $font-size-medium;
+  
+            &:hover {
+              color: $highlight-color;
+            }
+          }
+        }
+      }
+    }
+  
+    .hidden {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .dropdown-content {
+      width: 100%;
+      top: 50px;
+      left: 0;
+    }
+  }
+  
