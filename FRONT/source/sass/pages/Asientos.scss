@@ -24,7 +24,7 @@ $footer-max-width: 1200px;
   padding: $gap-large;
 
   &__image {
-    max-width: 150px;
+    max-width: 600px;
     height: auto;
   }
 }
@@ -73,6 +73,15 @@ $footer-max-width: 1200px;
   max-width: $max-width;
   margin: 0 auto;
   align-items: start;
+  @media (min-width: 767px) {
+    display: grid;
+    grid-template-rows: 1fr;
+  gap: 30px;
+  max-width: $max-width;
+  margin: 0 auto;
+  align-items: start;
+  }
+
 }
 
 // Movie Poster
@@ -88,13 +97,19 @@ $footer-max-width: 1200px;
   align-items: center;
   text-align: center;
   gap: $gap-large;
-
-
+  h3{
+    font-size: 26px;
+    line-height: 1.6;
+    
+  }
+  
 
   .movie-info {
     font-size: $font-size-large;
     line-height: 1.6;
     text-align: center;
+
+    
 
     p {
       margin: 0;
@@ -120,6 +135,7 @@ $footer-max-width: 1200px;
   order: 3;
   width: 100%;
   text-align: center;
+ 
 
   h2 {
     font-size: $font-size-large;
@@ -130,6 +146,9 @@ $footer-max-width: 1200px;
     width: 100%;
     height: 200px;
     border-radius: 10px;
+    border-width: 5px;
+    border-color: #fdd835;
+
   }
 }
 
@@ -295,7 +314,11 @@ $footer-max-width: 1200px;
 
   .movie-details {
     justify-content: space-between;
-    margin-top: 50%;
+    margin-top: 2%;
     align-items: start;
+    h3{
+      font-size: 50px;
+      line-height: 1.6;
+    }
   }
 }
