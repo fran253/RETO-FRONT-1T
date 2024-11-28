@@ -1,7 +1,7 @@
 import config from "./config.js"
 document.addEventListener("DOMContentLoaded", function () {
     const owlPelis = document.querySelector("#owl-pelis");
-
+    console.log(`${config.API_ENDPOINT}/CinemaParaiso/Pelicula`)
     fetch(`${config.API_ENDPOINT}/CinemaParaiso/Pelicula`)
         .then(response => {
             if (!response.ok) {

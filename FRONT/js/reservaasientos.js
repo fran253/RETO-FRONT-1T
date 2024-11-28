@@ -1,12 +1,13 @@
 import config from "./config.js";
 
 const seatColors = {
-    free: "#007bff",        // Azul para asientos libres
-    pending: "#ffc107",     // Amarillo para asientos en espera de confirmación
-    occupied: "#dc3545"     // Rojo para asientos ocupados
+    free: "#007bff",
+    pending: "#ffc107",
+    occupied: "#dc3545"
 };
 
-// Obtener parámetros de la URL
+let total = 0;
+
 const params = new URLSearchParams(window.location.search);
 const idPelicula = params.get("idPelicula");
 const idHorario = params.get("idHorario");
@@ -15,20 +16,14 @@ if (!idPelicula || !idHorario) {
     console.error("Faltan parámetros en la URL.");
 } else {
     const urlDetalles = `${config.API_ENDPOINT}/CinemaParaiso/Sesion/${idHorario}`;
-    const urlAsientos = `${config.API_ENDPOINT}/CinemaParaiso/Asiento`;
-    const urlSaveSeats = `${config.API_ENDPOINT}/CinemaParaiso/Asiento/SaveSeats`;
-    
-console.log(urlDetalles)
-    // Obtener detalles de la película y horario
+
     fetch(urlDetalles)
-        .then(response => {
-            if (!response.ok) throw new Error("Error al obtener los detalles de la película y horario.");
-            return response.json();
-        })
+        .then(response => response.ok ? response.json() : Promise.reject("Error al obtener los detalles."))
         .then(data => {
             const movieLayout = document.querySelector(".movie-layout");
             if (!movieLayout) return;
 
+            const precioAsiento = data.horario.sala.precioAsiento;
             const horario = data.horario;
             if (!horario || !horario.sala) return;
 
@@ -38,99 +33,127 @@ console.log(urlDetalles)
                 </div>
                 <div class="movie-details">
                     <p><strong>${data.pelicula.nombre}</strong></p>
-                    <p><strong>Sala:</strong> ${horario.sala.nombreSala}</p> 
+                    <p><strong>Sala:</strong> ${horario.sala.nombreSala}</p>
+                    <p><strong>Precio:</strong> ${precioAsiento} €</p>
                     <p><strong>Horario:</strong> ${horario.hora.replace("T", " ")}</p>
                 </div>
             `;
         })
-        .catch(error => console.error("Error al cargar los detalles:", error));
+        .catch(error => console.error(error));
 
-    // Obtener y renderizar los asientos
-    const pendingSeats = []; // Almacena asientos en espera de confirmación
+    const pendingSeats = [];
 
     fetch(urlDetalles)
-        .then(response => {
-            if (!response.ok) throw new Error("Error al obtener los datos de los asientos.");
-            return response.json();
-        })
+        .then(response => response.ok ? response.json() : Promise.reject("Error al obtener los datos de los asientos."))
         .then(sesion => {
-            console.log(sesion)
             const seatingArea = document.getElementById("seatingArea");
             if (!seatingArea) return;
 
-            seatingArea.innerHTML = ""; // Limpiar el área de asientos antes de renderizar
+            seatingArea.innerHTML = "";
             sesion.asientosDisponibles.forEach(asiento => {
-                const { idAsiento, estado } = asiento;
+                const { idAsiento, estado, precioAsiento } = asiento;
 
                 const seatDiv = document.createElement("div");
                 seatDiv.classList.add("seat-item");
                 seatDiv.style.backgroundColor = estado ? seatColors.occupied : seatColors.free;
                 seatDiv.dataset.idAsiento = idAsiento;
-                seatDiv.dataset.estado = estado; // Guardar estado inicial (true = ocupado, false = libre)
+                seatDiv.dataset.estado = estado;
+                seatDiv.dataset.precio = precioAsiento;
 
-                seatingArea.appendChild(seatDiv); // Agregar asiento al DOM
+                seatingArea.appendChild(seatDiv);
             });
 
-            // Llamar a la función de manejo de asientos
             manageSeatActions(pendingSeats, seatingArea, sesion.idSesion);
         })
-        .catch(error => console.error("Error al cargar los asientos:", error));
+        .catch(error => console.error(error));
 }
 
-// Función para manejar los asientos
 function manageSeatActions(pendingSeats, seatingArea, sesionId) {
     const confirmSeatsButton = document.getElementById("confirmSeatsButton");
+    const buySeatsButton = document.getElementById("buySeatsButton");
+    const selectedSeatsList = document.getElementById("selectedSeatsList");
+    const totalDisplay = document.getElementById("totalPrice");
 
-    // Manejo de clic en los asientos
     seatingArea.addEventListener("click", (event) => {
         const seatDiv = event.target;
         const idAsiento = seatDiv.dataset.idAsiento;
         const estado = seatDiv.dataset.estado;
+        const precioAsiento = parseFloat(seatDiv.dataset.precio);
 
         if (idAsiento !== undefined) {
             if (estado === "false") {
-                // Cambiar a "pendiente de compra" si está libre
                 seatDiv.style.backgroundColor = seatColors.pending;
                 seatDiv.dataset.estado = "pending";
-                pendingSeats.push(parseInt(idAsiento));
+                pendingSeats.push({ idAsiento: parseInt(idAsiento), precio: precioAsiento });
+                total += precioAsiento;
             } else if (estado === "pending") {
-                // Cambiar a "libre" si está pendiente
                 seatDiv.style.backgroundColor = seatColors.free;
                 seatDiv.dataset.estado = "false";
-                const index = pendingSeats.indexOf(parseInt(idAsiento));
-                if (index > -1) pendingSeats.splice(index, 1);
+                const index = pendingSeats.findIndex(seat => seat.idAsiento === parseInt(idAsiento));
+                if (index > -1) {
+                    total -= pendingSeats[index].precio;
+                    pendingSeats.splice(index, 1);
+                }
             }
+
+            updateSelectedSeatsList(pendingSeats, selectedSeatsList);
+            if (totalDisplay) totalDisplay.textContent = `Total: ${total.toFixed(2)}`;
         }
     });
 
-    // Confirmar compra de asientos
     if (confirmSeatsButton) {
         confirmSeatsButton.addEventListener("click", () => {
-            // Enviar los asientos pendientes a la API
             fetch(`${config.API_ENDPOINT}/CinemaParaiso/Sesion/${sesionId}/Asientos`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({ pendingSeats })
+                body: JSON.stringify({ pendingSeats: pendingSeats.map(seat => seat.idAsiento) })
             })
-                .then(response => {
-                    if (!response.ok) throw new Error("Error al confirmar los asientos.");
-                    return response.json();
-                })
+                .then(response => response.ok ? response.json() : Promise.reject("Error al confirmar los asientos."))
                 .then(() => {
-                    // Actualizar estado de los asientos a "ocupado"
-                    pendingSeats.forEach(idAsiento => {
-                        const seatDiv = seatingArea.querySelector(`[data-id-asiento='${idAsiento}']`);
+                    pendingSeats.forEach(seat => {
+                        const seatDiv = seatingArea.querySelector(`[data-id-asiento='${seat.idAsiento}']`);
                         if (seatDiv) {
                             seatDiv.style.backgroundColor = seatColors.occupied;
-                            seatDiv.dataset.estado = "true"; // Actualizar estado a ocupado
+                            seatDiv.dataset.estado = "true";
                         }
                     });
-                    pendingSeats.length = 0; // Vaciar la lista de pendientes
+                    pendingSeats.length = 0;
+                    total = 0;
+                    updateSelectedSeatsList(pendingSeats, selectedSeatsList);
+                    if (totalDisplay) totalDisplay.textContent = `0.00 €`;
                     alert("Asientos confirmados con éxito.");
                 })
-                .catch(error => console.error("Error al confirmar los asientos:", error));
+                .catch(error => console.error(error));
         });
     }
+
+    if (buySeatsButton) {
+        buySeatsButton.addEventListener("click", () => {
+            fetch(`${config.API_ENDPOINT}/CinemaParaiso/Sesion/${sesionId}/Asientos`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(pendingSeats.map(seat => seat.idAsiento))
+            })
+                .then(response => response.ok ? response.json() : Promise.reject("Error al marcar los asientos como ocupados."))
+                .then(() => {
+                    window.location.reload();
+                    alert("Compra realizada con éxito. Los asientos están ocupados.");
+                    window.location.href = `pago.html`;
+                })
+                .catch(error => console.error(error));
+        });
+    }
+}
+
+function updateSelectedSeatsList(pendingSeats, selectedSeatsList) {
+    selectedSeatsList.innerHTML = "";
+    pendingSeats.forEach(seat => {
+        const li = document.createElement("li");
+        li.textContent = `Asiento ${seat.idAsiento} - ${seat.precio.toFixed(2) }€`;
+        selectedSeatsList.appendChild(li);
+    });
 }
