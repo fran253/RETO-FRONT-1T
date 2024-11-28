@@ -6,7 +6,6 @@
     <title>Reservar Asientos - Cinema Paradiso</title>
     <link rel="stylesheet" href="../build/menu.css">
 
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
@@ -24,12 +23,12 @@
     <main class="main-content">
         <!-- Detalles de la Película -->
         <div class="movie-layout">
-            
+            <!-- Aquí se cargarán los detalles de la película desde el JS -->
         </div>
-
+    
         <div class="seating-section">
             <h2>Selecciona tus asientos</h2>
-            
+    
             <div class="seat-legend">
                 <div class="legend-item">
                     <span class="seat-item free"></span> Libre
@@ -41,14 +40,21 @@
                     <span class="seat-item selected"></span> Seleccionado
                 </div>
             </div>
-            
+    
             <div class="screen">Pantalla</div>
-            
+    
+            <!-- Área donde se mostrarán los asientos -->
             <div id="seatingArea" class="seating-area"></div>
-            <a href="../html/pago.html"><button id="buySeatsButton" class="purchase-button">Comprar Asientos</button></a>
-        
+            
+            <!-- Contenedor para mostrar los asientos seleccionados y total -->
+            <div class="seating-right">
+                <div id="selected-seats" class="selected-seats"></div>
+                <div id="total-container" class="total-container"></div>
+                <button id="buySeatsButton" class="purchase-button">Comprar Asientos</button>
+            </div>
         </div>
     </main>
+    
     
     <footer class="footer">
         <div class="footer-links">
