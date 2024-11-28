@@ -851,4 +851,59 @@ body {
   cursor: pointer;
 }
 
+.Aviso {
+  padding-top: 3%;
+  padding-bottom: 5%;
+  width: 360px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+.Aviso__header {
+  background-color: #ffcf38;
+  color: #1a1a1a;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 12px 0;
+}
+.Aviso__content {
+  background-color: #435f9c;
+  color: #e2dbff;
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: justify;
+  padding: 20px;
+}
+
+.Denuncia {
+  padding-top: 3%;
+  padding-bottom: 5%;
+  width: 360px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+.Denuncia__header {
+  background-color: #ffcf38;
+  color: #1a1a1a;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 12px 0;
+}
+.Denuncia__content {
+  background-color: #435f9c;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Denuncia__image {
+  max-width: 100%;
+  border-radius: 4px;
+  background-color: #d6c9ff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
 /*# sourceMappingURL=menu.css.map */

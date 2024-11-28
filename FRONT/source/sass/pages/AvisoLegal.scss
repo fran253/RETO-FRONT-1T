@@ -1,0 +1,26 @@
+.Aviso {
+    padding-top: 3%;
+    padding-bottom: 5%;
+    width: 360px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  
+    &__header {
+      background-color: #ffcf38;
+      color: #1a1a1a;
+      text-align: center;
+      font-weight: bold;
+      font-size: 16px;
+      padding: 12px 0;
+    }
+  
+    &__content {
+      background-color: #435f9c;
+      color: #e2dbff;
+      font-size: 14px;
+      line-height: 1.6;
+      text-align: justify;
+      padding: 20px;
+    }
+  }
