@@ -1,21 +1,24 @@
 import config from "./config.js";
 
+//Constantes para colores de asientos
 const seatColors = {
     free: "#007bff",
     selected: "#ffc107",
     sold: "#dc3545"
 };
 
-// Obtener el ID de la sesión directamente de la URL
+
+// Obtener el ID de la sesión directamente de la URL de nuestro ordenador
 const params = new URLSearchParams(window.location.search);
 const idSesion = params.get("idSesion");
 
 if (!idSesion) {
     console.error("Faltan parámetros en la URL.");
 } else {
+    //gracias a la constante dentro de config.js solo cambiamos la url en un sitio
     const urlDetalles = `${config.API_ENDPOINT}/CinemaParaiso/Sesion/${idSesion}`;
 
-    // Obtener detalles de la sesión (película, horario, sala y asientos)
+    // Fetch
     fetch(urlDetalles)
         .then(response => response.json())
         .then(data => {
@@ -29,6 +32,7 @@ if (!idSesion) {
                 return;
             }
 
+            //creamos constantes para no tener que escribir constantemente "data.noseque" en el html de abajo
             const pelicula = data.pelicula;
             const horario = data.horario;
             const sala = horario.sala;
@@ -62,12 +66,15 @@ if (!idSesion) {
 
             const selectedSeats = new Set(); // Usar un Set para evitar duplicados
 
+            //Crear asientos y asignarles colores 
+            //cambiarles el estado al hacer cliclk
             asientos.forEach(asiento => {
                 const seatDiv = document.createElement("div");
                 seatDiv.className = "seat-item";
                 seatDiv.id = `seat-${asiento.idAsiento}`;
                 seatDiv.style.backgroundColor = asiento.libre ? seatColors.free : seatColors.sold;
-
+                
+                
                 seatDiv.addEventListener("click", () => {
                     if (asiento.libre && !selectedSeats.has(asiento.idAsiento)) {
                         asiento.libre = false;
@@ -95,7 +102,7 @@ if (!idSesion) {
                 seatingArea.appendChild(seatDiv);
             });
 
-            // Función para comprar los asientos seleccionados
+            // Comprar asientos
             const buyButton = document.getElementById("buySeatsButton");
             if (buyButton) {
                 buyButton.addEventListener("click", () => {
@@ -105,7 +112,7 @@ if (!idSesion) {
                     }
 
                     // Enviar la solicitud para marcar los asientos como ocupados
-                    const seatIds = Array.from(selectedSeats); // Convertir Set a Array
+                    const seatIds = Array.from(selectedSeats); 
                     const total = selectedSeats.size * sala.precioAsiento;
 
                     fetch(`${config.API_ENDPOINT}/CinemaParaiso/Sesion/${idSesion}/Asientos`, {
