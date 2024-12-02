@@ -3,40 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <!-- CARRUSEL CSS -->
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <!-- CARRUSEL CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 
-          <!-- LETRA PERSONALIZADA -->
+    <!-- LETRA PERSONALIZADA -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
 
     <title>Cinema Paradiso</title>
-    <link rel="stylesheet" href="../build/CategoriasPeliculas.css">
-    <link rel="stylesheet" href="../build/menu.css">
+    <link rel="stylesheet" href="/css/CategoriasPeliculas.css"> <!-- Ajuste de la ruta -->
+    <link rel="stylesheet" href="/css/menu.css"> <!-- Ajuste de la ruta -->
 
-     <!-- CARRUSEL-->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-
+    <!-- CARRUSEL -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 </head>
 <body>
-
     <header class="header">
         <div class="logo">
-            <img src="../imgs/logo.png" alt="logo" class="logo-image">
+            <img src="/images/logo.png" alt="logo" class="logo-image"> <!-- Ajuste de la ruta -->
         </div>
         <nav class="menu">
-            <a href="../html/Peliculas.html">PELICULAS</a>
-            <a href="../html/main.html">MENU</a>
-            <a href="../html/main.html#ENCUENTRANOS"><img src="../imgs/chincheta.png" alt="chincheta" class="chincheta"></a>
+            <a href="/Peliculas">PELICULAS</a> <!-- Ajuste de la ruta -->
+            <a href="/main">MENU</a> <!-- Ajuste de la ruta -->
+            <a href="/main#ENCUENTRANOS"><img src="/images/chincheta.png" alt="chincheta" class="chincheta"></a> <!-- Ajuste de la ruta -->
         </nav>
     </header>
     
     <div class="dropdown-menu">
         <button class="dropdown-button">
-            <img src="../imgs/Categoria.png" alt="Desplegar categorías">
+            <img src="/images/Categoria.png" alt="Desplegar categorías"> <!-- Ajuste de la ruta -->
         </button>
         <div class="dropdown-content hidden">
             <ul>
@@ -50,8 +48,6 @@
         </div>
     </div>
     
-    
-
     <section class="Estrenos" id="Estrenos">
         <h2>Estrenos</h2>
         <div id="owl-pelis-estrenos" class="owl-carousel owl-theme"></div>
@@ -82,15 +78,14 @@
         <div id="owl-pelis-animacion" class="owl-carousel owl-theme"></div>
     </section>
     
-
     <footer class="footer">
         <div class="footer-links">
             <div class="column">
-                <p><a href="../html/AvisoLegal.html">Aviso Legal</a></p>
-                <p><a href="../html/DenunciaIrregularidades.html">Denuncia de Irregularidades</a></p>
+                <p><a href="/AvisoLegal">Aviso Legal</a></p> <!-- Ajuste de la ruta -->
+                <p><a href="/DenunciaIrregularidades">Denuncia de Irregularidades</a></p> <!-- Ajuste de la ruta -->
             </div>
             <div class="column">
-                <img src="../imgs/logo_black.png" class="logo_negro">
+                <img src="/images/logo_black.png" class="logo_negro"> <!-- Ajuste de la ruta -->
             </div>
             <div class="column">
                 <p><a href="https://www.instagram.com/">Instagram</a></p>
@@ -100,12 +95,7 @@
         </div>
     </footer>
     
-    
-
-    <script type="module"  src="../js/FiltradoPeliculasCategoria.js"></script>
-    <script src="../js/carousel.js"></script>
-
+    <script type="module" src="/js/FiltradoPeliculasCategoria.js"></script> <!-- Ajuste de la ruta -->
+    <script src="/js/carousel.js"></script> <!-- Ajuste de la ruta -->
 </body>
 </html>
-
-

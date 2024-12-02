@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         const horario = sesion.horario;
                         // Mostrar los detalles de los horarios
                         scheduleSect.innerHTML += `
-                            <a href="../html/ReservarAsientos.html?idPelicula=${sesion.pelicula.idPelicula}&idHorario=${horario.idHorario}&idSesion=${sesion.idSesion}" class="schedule-link">
+                            <a href="/ReservarAsientos?idPelicula=${sesion.pelicula.idPelicula}&idHorario=${horario.idHorario}&idSesion=${sesion.idSesion}" class="schedule-link">
                                 <div class="schedule-section__item">
                                     <h3>${horario.fechaInicio.replace("T", " ")}</h3>
                                     <p>Sala ${horario.sala.nombreSala}</p>
