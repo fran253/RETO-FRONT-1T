@@ -1,3 +1,3 @@
 export default {
-    API_ENDPOINT: "https://localhost:7000"
+    API_ENDPOINT: "http://52.87.111.65:7000"
 }
