@@ -1,0 +1,197 @@
+.contenedor__principal {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  gap: 10px; 
+  padding: 10px; 
+}
+
+.contenedor__info {
+  border: 3px solid #F6C80F;
+  border-radius: 10px;
+  padding: 10px; 
+  width: 90%; 
+  background-color: #002244;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  gap: 10px;
+}
+
+.info__top {
+  display: flex;
+  flex-direction: column; 
+  gap: 10px;
+}
+
+.info__poster {
+  width: 100%; 
+  height: auto;
+  border-radius: 8px;
+}
+
+.info__details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.info__titulo {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.info__horario,
+.info__sala {
+  font-size: 12px;
+}
+
+.info__asientos {
+  font-size: 12px;
+  color: #d0d0d0;
+  line-height: 1.5;
+}
+
+.contenedor__pago {
+  border: 3px solid #F6C80F;
+  border-radius: 10px;
+  padding: 10px;
+  width: 90%; 
+  background-color: #002244;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.terminosycondiciones {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #d0d0d0;
+  font-size: 12px; 
+}
+
+.imagenes__pago {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.imagen__pago {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 80px; 
+  height: 50px;
+  border: 2px solid #ffcc00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &.activo {
+    border-color: #446BCD;
+  }
+}
+
+.aceptar__pago {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+
+  input[type="checkbox"] {
+    margin-right: 5px;
+    width: 14px; 
+    height: 14px;
+  }
+
+  label {
+    font-size: 12px;
+    color: #ffcc00;
+  }
+}
+
+.total__pago {
+  background-color: #336699;
+  padding: 5px;
+  border-radius: 8px;
+  width: 100%;
+  text-align: center;
+
+  p {
+    margin: 3px 0;
+    color: #e6e6e6;
+    font-size: 12px;
+  }
+
+  button {
+    background-color: #0000ff;
+    color: #ffcc00;
+    border: none;
+    padding: 8px 10px; 
+    font-size: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+}
+
+/* Tablets*/
+@media (min-width: 768px) {
+  .contenedor__principal {
+    flex-direction: row; 
+    justify-content: center;
+    gap: 15px; 
+    padding: 20px;
+  }
+
+  .contenedor__info,
+  .contenedor__pago {
+    width: 45%; 
+  }
+
+  .info__poster {
+    width: 40%; 
+  }
+
+  .imagenes__pago {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Ordenador */
+@media (min-width: 1024px) {
+  .contenedor__info,
+  .contenedor__pago {
+    width: 35%; 
+  }
+
+  .info__top {
+    flex-direction: row;
+    gap: 15px;
+  }
+
+  .info__poster {
+    width: 35%;
+  }
+
+  .imagenes__pago {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .terminosycondiciones {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 14px;
+  }
+
+  .total__pago button {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+}

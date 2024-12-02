@@ -17,47 +17,7 @@ $font-size-xxlarge: 36px; // Nueva variable para título grande
 $max-width: 1000px;
 $footer-max-width: 1200px;
 
-// Logo
-.logo {
-  display: flex;
-  justify-content: center;
-  padding: $gap-large;
 
-  &__image {
-    max-width: 150px;
-    height: auto;
-  }
-}
-
-// Header
-.header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  &__nav {
-    background-color: $highlight-color;
-    width: 100%;
-    padding: 15px 0;
-    text-align: center;
-  }
-}
-
-.nav__list {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 15%;
-  flex-wrap: wrap;
-}
-
-.nav__link {
-  color: $background-color;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: $font-size-medium;
-  transition: color 0.3s ease;
-}
 
 // Main Content
 .main-content {
@@ -73,6 +33,15 @@ $footer-max-width: 1200px;
   max-width: $max-width;
   margin: 0 auto;
   align-items: start;
+  @media (min-width: 767px) {
+    display: grid;
+    grid-template-rows: 1fr;
+  gap: 30px;
+  max-width: $max-width;
+  margin: 0 auto;
+  align-items: start;
+  }
+
 }
 
 // Movie Poster
@@ -88,11 +57,19 @@ $footer-max-width: 1200px;
   align-items: center;
   text-align: center;
   gap: $gap-large;
+  h3{
+    font-size: 26px;
+    line-height: 1.6;
+    
+  }
+  
 
   .movie-info {
     font-size: $font-size-large;
     line-height: 1.6;
     text-align: center;
+
+    
 
     p {
       margin: 0;
@@ -118,6 +95,7 @@ $footer-max-width: 1200px;
   order: 3;
   width: 100%;
   text-align: center;
+ 
 
   h2 {
     font-size: $font-size-large;
@@ -128,6 +106,9 @@ $footer-max-width: 1200px;
     width: 100%;
     height: 200px;
     border-radius: 10px;
+    border-width: 5px;
+    border-color: #fdd835;
+
   }
 }
 
@@ -235,65 +216,3 @@ $footer-max-width: 1200px;
   }
 }
 
-// Footer
-.footer {
-  background-color: $highlight-color;
-  padding: 30px 15px;
-  text-align: center;
-  color: $background-color;
-
-  &__content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: $gap-large;
-    max-width: $footer-max-width;
-    margin: 0 auto;
-
-    @media (min-width: 767px) {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-  }
-
-  &__column {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    min-width: 150px;
-    align-items: center;
-
-    @media (min-width: 767px) {
-      align-items: flex-start;
-    }
-  }
-
-  &__text {
-    font-size: $font-size-small;
-    color: $background-color;
-    margin: 0;
-    cursor: default;
-
-    &:hover {
-      color: #333;
-    }
-
-    @media (min-width: 767px) {
-      font-size: $font-size-medium;
-    }
-  }
-}
-
-// Media Queries
-@media (min-width: 767px) {
-  .nav__list {
-    gap: 30%;
-  }
-
-  .movie-details {
-    justify-content: space-between;
-    margin-top: 50%;
-    align-items: start;
-  }
-}

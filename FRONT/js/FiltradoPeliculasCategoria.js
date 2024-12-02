@@ -1,3 +1,4 @@
+import config from "./config.js"
 document.addEventListener("DOMContentLoaded", function () {
     const categorias = [
             { id: "owl-pelis-estrenos", categoriaId: 1 },
@@ -12,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     categorias.forEach(categoria => {
         const owlPelis = document.querySelector(`#${categoria.id}`);
 
-        fetch(`http://localhost:5000/CinemaParaiso/Pelicula/categoria?idCategoriaPelicula=${categoria.categoriaId}`)
+        fetch(`${config.API_ENDPOINT}/CinemaParaiso/Pelicula/categoria?idCategoriaPelicula=${categoria.categoriaId}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error("Error al obtener las películas");
@@ -54,5 +55,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.error("Error:", error);
                 owlPelis.innerHTML = "<p>Error al cargar las películas</p>";
             });
+    });
+});
+
+// para el desplegable de categorias
+document.addEventListener("DOMContentLoaded", () => {
+    const dropdownButton = document.querySelector(".dropdown-button");
+    const dropdownContent = document.querySelector(".dropdown-content");
+
+    dropdownButton.addEventListener("click", () => {
+        dropdownContent.classList.toggle("hidden");
     });
 });

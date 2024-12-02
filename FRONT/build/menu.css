@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   box-sizing: border-box;
   margin: 0;
@@ -71,6 +72,7 @@ body {
 .footer .footer-links {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 40px;
 }
 .footer .footer-links .column {
@@ -83,119 +85,8 @@ body {
   text-decoration: none;
   font-weight: bold;
 }
-
-.reserve-button {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  background-color: #F6C80F;
-  color: #07172D;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1.2em;
-  cursor: pointer;
-  border-radius: 20px;
-}
-
-.banner {
-  width: 100%;
-  max-width: 100%;
-  position: relative;
-}
-.banner .banner-image {
-  width: 100%;
-  height: auto;
-}
-
-.cartelera {
-  width: 100%;
-  max-width: 1300px;
-  text-align: center;
-  margin-top: 8%;
-  margin-bottom: 15%;
-}
-.cartelera h2 {
-  font-size: 100px;
-  margin-bottom: 20px;
-  color: #fff;
-}
-.cartelera #owl-pelis {
-  margin-top: 5%;
-  display: grid;
-  gap: 40px;
-}
-.cartelera #owl-pelis .item {
-  height: 400px;
-  background: #446BCD;
-  margin: 10px;
-  color: #FFF;
-  text-align: center;
-}
-.cartelera #owl-pelis .item a {
-  color: #FFF;
-  text-decoration: none;
-}
-.cartelera #owl-pelis .item h3 {
-  height: 5%;
-  font-size: 16px;
-  align-content: start;
-}
-.cartelera #owl-pelis .pelicula {
-  height: 100%;
-  width: auto;
-  background-color: #446BCD;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-.cartelera #owl-pelis .pelicula img {
-  width: 100%;
-  height: 90%;
-  display: block;
-}
-
-#Estrenos, #Accion, #Animacion, #Terror, #Aventura, #CienciaFiccion {
-  width: 100%;
-  max-width: 1300px;
-  margin-top: 1%;
-  margin-bottom: 10%;
-}
-#Estrenos h2, #Accion h2, #Animacion h2, #Terror h2, #Aventura h2, #CienciaFiccion h2 {
-  font-size: 70px;
-  margin-bottom: 1%;
-  color: #fff;
-}
-#Estrenos .owl-carousel, #Accion .owl-carousel, #Animacion .owl-carousel, #Terror .owl-carousel, #Aventura .owl-carousel, #CienciaFiccion .owl-carousel {
-  margin-top: 1%;
-  display: grid;
-  gap: 40px;
-}
-#Estrenos .owl-carousel .item, #Accion .owl-carousel .item, #Animacion .owl-carousel .item, #Terror .owl-carousel .item, #Aventura .owl-carousel .item, #CienciaFiccion .owl-carousel .item {
-  height: 400px;
-  background: #446BCD;
-  margin: 10px;
-  color: #FFF;
-  text-align: center;
-}
-#Estrenos .owl-carousel .item a, #Accion .owl-carousel .item a, #Animacion .owl-carousel .item a, #Terror .owl-carousel .item a, #Aventura .owl-carousel .item a, #CienciaFiccion .owl-carousel .item a {
-  color: #FFF;
-  text-decoration: none;
-}
-#Estrenos .owl-carousel .item h3, #Accion .owl-carousel .item h3, #Animacion .owl-carousel .item h3, #Terror .owl-carousel .item h3, #Aventura .owl-carousel .item h3, #CienciaFiccion .owl-carousel .item h3 {
-  height: 5%;
-  font-size: 16px;
-  align-content: start;
-}
-#Estrenos .owl-carousel .pelicula, #Accion .owl-carousel .pelicula, #Animacion .owl-carousel .pelicula, #Terror .owl-carousel .pelicula, #Aventura .owl-carousel .pelicula, #CienciaFiccion .owl-carousel .pelicula {
-  height: 100%;
-  width: auto;
-  background-color: #446BCD;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-#Estrenos .owl-carousel .pelicula img, #Accion .owl-carousel .pelicula img, #Animacion .owl-carousel .pelicula img, #Terror .owl-carousel .pelicula img, #Aventura .owl-carousel .pelicula img, #CienciaFiccion .owl-carousel .pelicula img {
-  width: 100%;
-  height: 90%;
-  display: block;
+.footer .footer-links .column .logo_negro {
+  width: 100px;
 }
 
 .logo {
@@ -220,20 +111,323 @@ body {
   text-align: center;
 }
 
-.nav__list {
-  list-style: none;
+.dropdown-menu {
+  position: fixed;
+  top: 70px;
+  left: 20px;
+  z-index: 1000;
+}
+.dropdown-menu .dropdown-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+.dropdown-menu .dropdown-button img {
+  width: 50px;
+  height: 50px;
+}
+.dropdown-menu .dropdown-content {
+  position: absolute;
+  padding-top: 60px;
+  padding-left: 0;
+  background-color: #0f1a34;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
   display: flex;
-  justify-content: center;
-  gap: 15%;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.dropdown-menu .dropdown-content ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.dropdown-menu .dropdown-content ul li {
+  margin-bottom: 10px;
+}
+.dropdown-menu .dropdown-content ul li:last-child {
+  margin-bottom: 0;
+}
+.dropdown-menu .dropdown-content ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+.dropdown-menu .dropdown-content ul li a:hover {
+  color: #fdd835;
+}
+.dropdown-menu .hidden {
+  display: none;
 }
 
-.nav__link {
-  color: #0f1a34;
+@media (max-width: 768px) {
+  .dropdown-content {
+    top: 50px;
+    left: 0;
+  }
+}
+.reserve-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: #F6C80F;
+  color: #07172D;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.banner {
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+}
+.banner .banner-image {
+  width: 100%;
+  height: auto;
+}
+
+.info-section {
+  padding-top: 5%;
+}
+.info-section .info-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 260px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.info-section .info-content .info-logo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 40px;
+  width: 30%;
+}
+.info-section .info-content .info-logo-text .info-logo {
+  width: 100%;
+  max-width: 250px;
+}
+.info-section .info-content .info-logo-text .info-description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  width: 400px;
+}
+.info-section .info-content .info-image {
+  width: 60%;
+  max-width: 600px;
+  border-radius: 10px;
+}
+@media (max-width: 768px) {
+  .info-section .info-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .info-section .info-content .info-logo-text,
+  .info-section .info-content .info-image {
+    width: 100%;
+    max-width: 300px;
+  }
+  .info-section .info-content .info-logo-text .info-description {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 480px) {
+  .info-section {
+    padding-top: 10%;
+  }
+  .info-section .info-content .info-logo-text .info-description {
+    font-size: 0.9rem;
+  }
+}
+
+.cartelera {
+  width: 100%;
+  max-width: 1300px;
+  text-align: center;
+  margin-top: 8%;
+  margin-bottom: 15%;
+}
+.cartelera h2 {
+  font-size: 100px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+.cartelera #owl-pelis {
+  margin-top: 5%;
+  display: grid;
+  gap: 40px;
+}
+.cartelera #owl-pelis .item {
+  height: 350px;
+  background: #446bcd;
+  margin: 10px;
+  color: #fff;
+  text-align: center;
+}
+.cartelera #owl-pelis .item a {
+  color: #fff;
   text-decoration: none;
-  font-weight: bold;
-  font-size: 14px;
-  transition: color 0.3s ease;
+}
+.cartelera #owl-pelis .item h3 {
+  height: 5%;
+  font-size: 16px;
+  align-content: start;
+}
+.cartelera #owl-pelis .pelicula {
+  height: 100%;
+  width: auto;
+  background-color: #446bcd;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.cartelera #owl-pelis .pelicula img {
+  width: 100%;
+  height: 90%;
+  display: block;
+}
+@media (max-width: 768px) {
+  .cartelera h2 {
+    font-size: 50px;
+  }
+  .cartelera #owl-pelis {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  .cartelera #owl-pelis .item {
+    height: 300px;
+  }
+  .cartelera #owl-pelis .pelicula img {
+    height: 85%;
+  }
+}
+@media (max-width: 480px) {
+  .cartelera h2 {
+    font-size: 30px;
+  }
+  .cartelera #owl-pelis {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+  }
+  .cartelera #owl-pelis .item {
+    height: 550px;
+  }
+  .cartelera #owl-pelis .pelicula img {
+    height: 90%;
+  }
+}
+
+.map-section {
+  width: 70%;
+  background-color: #002244; /* Fondo oscuro */
+  padding: 20px;
+  border: 3px solid #F6C80F;
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 15%;
+}
+.map-section h2 {
+  color: #F6C80F; /* Color amarillo para el título */
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+.map-section .map-container {
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#Estrenos, #Clasicos, #Animacion, #Terror, #Superheroes, #DeDirector {
+  width: 100%;
+  margin: 20px 0;
+  /* Tablets */
+  /* Dekstop*/
+}
+#Estrenos h2, #Clasicos h2, #Animacion h2, #Terror h2, #Superheroes h2, #DeDirector h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #fff;
+  text-align: center;
+}
+#Estrenos .owl-carousel, #Clasicos .owl-carousel, #Animacion .owl-carousel, #Terror .owl-carousel, #Superheroes .owl-carousel, #DeDirector .owl-carousel {
+  margin-top: 10px;
+  display: grid;
+  gap: 10px;
+}
+#Estrenos .owl-carousel .item, #Clasicos .owl-carousel .item, #Animacion .owl-carousel .item, #Terror .owl-carousel .item, #Superheroes .owl-carousel .item, #DeDirector .owl-carousel .item {
+  height: auto;
+  background: #446BCD;
+  margin: 5px;
+  color: #FFF;
+  text-align: center;
+  border-radius: 8px;
+}
+#Estrenos .owl-carousel .item a, #Clasicos .owl-carousel .item a, #Animacion .owl-carousel .item a, #Terror .owl-carousel .item a, #Superheroes .owl-carousel .item a, #DeDirector .owl-carousel .item a {
+  color: #FFF;
+  text-decoration: none;
+}
+#Estrenos .owl-carousel .item h3, #Clasicos .owl-carousel .item h3, #Animacion .owl-carousel .item h3, #Terror .owl-carousel .item h3, #Superheroes .owl-carousel .item h3, #DeDirector .owl-carousel .item h3 {
+  font-size: 12px;
+  margin: 5px 0;
+}
+#Estrenos .owl-carousel .pelicula, #Clasicos .owl-carousel .pelicula, #Animacion .owl-carousel .pelicula, #Terror .owl-carousel .pelicula, #Superheroes .owl-carousel .pelicula, #DeDirector .owl-carousel .pelicula {
+  height: auto;
+  width: 100%;
+  background-color: #446BCD;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+#Estrenos .owl-carousel .pelicula img, #Clasicos .owl-carousel .pelicula img, #Animacion .owl-carousel .pelicula img, #Terror .owl-carousel .pelicula img, #Superheroes .owl-carousel .pelicula img, #DeDirector .owl-carousel .pelicula img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px 8px 0 0;
+}
+@media (min-width: 768px) {
+  #Estrenos h2, #Clasicos h2, #Animacion h2, #Terror h2, #Superheroes h2, #DeDirector h2 {
+    font-size: 28px;
+  }
+  #Estrenos .owl-carousel, #Clasicos .owl-carousel, #Animacion .owl-carousel, #Terror .owl-carousel, #Superheroes .owl-carousel, #DeDirector .owl-carousel {
+    gap: 20px;
+  }
+  #Estrenos .owl-carousel .item, #Clasicos .owl-carousel .item, #Animacion .owl-carousel .item, #Terror .owl-carousel .item, #Superheroes .owl-carousel .item, #DeDirector .owl-carousel .item {
+    height: 300px;
+    margin: 10px;
+  }
+  #Estrenos .owl-carousel .item h3, #Clasicos .owl-carousel .item h3, #Animacion .owl-carousel .item h3, #Terror .owl-carousel .item h3, #Superheroes .owl-carousel .item h3, #DeDirector .owl-carousel .item h3 {
+    font-size: 16px;
+  }
+  #Estrenos .owl-carousel .pelicula, #Clasicos .owl-carousel .pelicula, #Animacion .owl-carousel .pelicula, #Terror .owl-carousel .pelicula, #Superheroes .owl-carousel .pelicula, #DeDirector .owl-carousel .pelicula {
+    height: 100%;
+  }
+  #Estrenos .owl-carousel .pelicula img, #Clasicos .owl-carousel .pelicula img, #Animacion .owl-carousel .pelicula img, #Terror .owl-carousel .pelicula img, #Superheroes .owl-carousel .pelicula img, #DeDirector .owl-carousel .pelicula img {
+    height: 85%;
+  }
+}
+@media (min-width: 1024px) {
+  #Estrenos, #Clasicos, #Animacion, #Terror, #Superheroes, #DeDirector {
+    max-width: 1300px;
+    margin: 1% auto;
+  }
+  #Estrenos h2, #Clasicos h2, #Animacion h2, #Terror h2, #Superheroes h2, #DeDirector h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+  }
+  #Estrenos .owl-carousel, #Clasicos .owl-carousel, #Animacion .owl-carousel, #Terror .owl-carousel, #Superheroes .owl-carousel, #DeDirector .owl-carousel {
+    gap: 40px;
+  }
+  #Estrenos .owl-carousel .item, #Clasicos .owl-carousel .item, #Animacion .owl-carousel .item, #Terror .owl-carousel .item, #Superheroes .owl-carousel .item, #DeDirector .owl-carousel .item {
+    height: 350px;
+  }
+  #Estrenos .owl-carousel .pelicula img, #Clasicos .owl-carousel .pelicula img, #Animacion .owl-carousel .pelicula img, #Terror .owl-carousel .pelicula img, #Superheroes .owl-carousel .pelicula img, #DeDirector .owl-carousel .pelicula img {
+    height: 90%;
+  }
 }
 
 .main-content {
@@ -250,6 +444,16 @@ body {
   margin: 0 auto;
   align-items: start;
 }
+@media (min-width: 767px) {
+  .movie-layout {
+    display: grid;
+    grid-template-rows: 1fr;
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+    align-items: start;
+  }
+}
 
 .movie-poster img {
   width: 100%;
@@ -262,6 +466,10 @@ body {
   align-items: center;
   text-align: center;
   gap: 20px;
+}
+.movie-details h3 {
+  font-size: 26px;
+  line-height: 1.6;
 }
 .movie-details .movie-info {
   font-size: 18px;
@@ -296,6 +504,8 @@ body {
   width: 100%;
   height: 200px;
   border-radius: 10px;
+  border-width: 5px;
+  border-color: #fdd835;
 }
 
 .seating-section {
@@ -385,167 +595,126 @@ body {
   background-color: #819aff;
 }
 
-.footer {
-  background-color: #fdd835;
-  padding: 30px 15px;
-  text-align: center;
-  color: #0f1a34;
-}
-.footer__content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
+.main-content {
   max-width: 1200px;
   margin: 0 auto;
-}
-@media (min-width: 767px) {
-  .footer__content {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-}
-.footer__column {
+  padding: 40px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  min-width: 150px;
-  align-items: center;
-}
-@media (min-width: 767px) {
-  .footer__column {
-    align-items: flex-start;
-  }
-}
-.footer__text {
-  font-size: 12px;
-  color: #0f1a34;
-  margin: 0;
-  cursor: default;
-}
-.footer__text:hover {
-  color: #333;
-}
-@media (min-width: 767px) {
-  .footer__text {
-    font-size: 14px;
-  }
-}
-
-@media (min-width: 767px) {
-  .nav__list {
-    gap: 30%;
-  }
-  .movie-details {
-    justify-content: space-between;
-    margin-top: 50%;
-    align-items: start;
-  }
-}
-.main-content {
-  max-width: 100%;
-  padding: 10px;
+  gap: 40px;
 }
 @media (min-width: 768px) {
   .main-content {
-    max-width: 900px;
-    margin: 10px auto;
-    padding: 20px;
+    gap: 40px;
   }
 }
 
 .movie-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  width: 100%;
-  padding: 20px;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  align-items: flex-start;
 }
 .movie-container__poster-details {
   display: flex;
-  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
   width: 100%;
-  font-family: "Jura", sans-serif;
 }
 @media (min-width: 768px) {
   .movie-container__poster-details {
-    display: table;
-    margin: 0 auto;
-    max-width: 900px;
-    grid-template-columns: repeat(1, 1fr);
+    flex-direction: row;
+    justify-content: space-between;
   }
-}
-.movie-container__poster-details td {
-  vertical-align: top;
-  padding: 10px;
 }
 .movie-container__poster-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.movie-container__poster-image img {
   width: 100%;
-  border-radius: 10px;
+  max-width: 350px;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
 }
-@media (min-width: 768px) {
-  .movie-container__poster-image {
-    width: auto;
-    grid-template-columns: repeat(1, 1fr);
-  }
+.movie-container__poster-image img:hover {
+  transform: scale(1.05);
 }
-.movie-container__synopsis {
+.movie-container__details {
+  flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
   text-align: left;
-  margin-top: 20px;
-  padding: 0 10px;
-  line-height: 1.8;
 }
-
-.movie-details {
-  text-align: left;
-  margin-top: 10px;
-  line-height: 1.8;
-  padding-left: 20px;
-}
-.movie-details__title {
-  font-size: 22px;
+.movie-container__details__title {
+  font-size: 24px;
   font-weight: bold;
   display: flex;
   align-items: center;
   gap: 10px;
-  justify-content: left;
-  margin-bottom: 30px;
 }
-.movie-details__rating {
-  background-color: #00c853;
-  padding: 4px 8px;
+.movie-container__details__title span {
+  color: #0f1a34;
+  background-color: #F6C80F;
+  padding: 5px 10px;
   border-radius: 5px;
   font-size: 12px;
 }
-.movie-details__info {
+.movie-container__details__info {
   font-size: 14px;
-  margin-bottom: 15px;
 }
-.movie-details__info-label {
+.movie-container__details__info-label {
   font-weight: bold;
+  color: #F6C80F;
+}
+.movie-container__synopsis {
+  margin-top: 40px;
+  text-align: left;
+  line-height: 1.8;
+  padding: 40px;
+  background-color: #0f1a34;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.movie-container__synopsis h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  position: relative;
+}
+.movie-container__synopsis h3::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: #F6C80F;
 }
 
 .schedule-section {
-  margin-top: 20px;
+  margin-top: 40px;
   width: 100%;
 }
 .schedule-section__title {
   font-size: 18px;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   text-align: center;
 }
 .schedule-section__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 10px;
-}
-@media (min-width: 768px) {
-  .schedule-section__grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
+  justify-content: center;
+  padding: 10px;
 }
 .schedule-section__item {
   background-color: #5673ea;
@@ -554,83 +723,252 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px;
-  border-radius: 5px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
   font-size: 14px;
   font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 .schedule-section__item:hover {
   background-color: #819aff;
   transform: scale(1.05);
 }
-.schedule-section__item:active {
-  background-color: #4e71ff;
-  transform: scale(0.95);
+
+.contenedor__principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
 }
 
-.footer {
-  background-color: #fdd835;
-  padding: 30px 15px;
-  text-align: center;
-  color: #0f1a34;
-}
-.footer__content {
+.contenedor__info {
+  border: 3px solid #F6C80F;
+  border-radius: 10px;
+  padding: 10px;
+  width: 90%;
+  background-color: #002244;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  max-width: 900px;
-  margin: 0 auto;
+  color: #fff;
+  gap: 10px;
 }
-@media (min-width: 768px) {
-  .footer__content {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-}
-.footer__column {
+
+.info__top {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  min-width: 150px;
-  align-items: center;
+  gap: 10px;
 }
-@media (min-width: 768px) {
-  .footer__column {
-    align-items: flex-start;
-  }
+
+.info__poster {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
 }
-.footer__text {
+
+.info__details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.info__titulo {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.info__horario,
+.info__sala {
   font-size: 12px;
-  color: #0f1a34;
-  margin: 0;
-  cursor: default;
-}
-.footer__text:hover {
-  color: #333;
-}
-@media (min-width: 768px) {
-  .footer__text {
-    font-size: 14px;
-  }
 }
 
+.info__asientos {
+  font-size: 12px;
+  color: #d0d0d0;
+  line-height: 1.5;
+}
+
+.contenedor__pago {
+  border: 3px solid #F6C80F;
+  border-radius: 10px;
+  padding: 10px;
+  width: 90%;
+  background-color: #002244;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.terminosycondiciones {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #d0d0d0;
+  font-size: 12px;
+}
+
+.imagenes__pago {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.imagen__pago {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 80px;
+  height: 50px;
+  border: 2px solid #ffcc00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.imagen__pago img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.imagen__pago.activo {
+  border-color: #446BCD;
+}
+
+.aceptar__pago {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.aceptar__pago input[type=checkbox] {
+  margin-right: 5px;
+  width: 14px;
+  height: 14px;
+}
+.aceptar__pago label {
+  font-size: 12px;
+  color: #ffcc00;
+}
+
+.total__pago {
+  background-color: #336699;
+  padding: 5px;
+  border-radius: 8px;
+  width: 100%;
+  text-align: center;
+}
+.total__pago p {
+  margin: 3px 0;
+  color: #e6e6e6;
+  font-size: 12px;
+}
+.total__pago button {
+  background-color: #0000ff;
+  color: #ffcc00;
+  border: none;
+  padding: 8px 10px;
+  font-size: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Tablets*/
 @media (min-width: 768px) {
-  .movie-container__poster-details {
-    display: table;
-    margin: 0 auto;
-    width: auto;
-    text-align: left;
-  }
-  .movie-container__poster-details td {
+  .contenedor__principal {
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px;
     padding: 20px;
   }
-  .nav__list {
-    gap: 30%;
+  .contenedor__info,
+  .contenedor__pago {
+    width: 45%;
   }
+  .info__poster {
+    width: 40%;
+  }
+  .imagenes__pago {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+/* Ordenador */
+@media (min-width: 1024px) {
+  .contenedor__info,
+  .contenedor__pago {
+    width: 35%;
+  }
+  .info__top {
+    flex-direction: row;
+    gap: 15px;
+  }
+  .info__poster {
+    width: 35%;
+  }
+  .imagenes__pago {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .terminosycondiciones {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 14px;
+  }
+  .total__pago button {
+    font-size: 14px;
+    padding: 10px 15px;
+  }
+}
+.Aviso {
+  padding-top: 3%;
+  padding-bottom: 5%;
+  width: 360px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+.Aviso__header {
+  background-color: #ffcf38;
+  color: #1a1a1a;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 12px 0;
+}
+.Aviso__content {
+  background-color: #435f9c;
+  color: #e2dbff;
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: justify;
+  padding: 20px;
+}
+
+.Denuncia {
+  padding-top: 3%;
+  padding-bottom: 5%;
+  width: 360px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+.Denuncia__header {
+  background-color: #ffcf38;
+  color: #1a1a1a;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 12px 0;
+}
+.Denuncia__content {
+  background-color: #435f9c;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Denuncia__image {
+  max-width: 100%;
+  border-radius: 4px;
+  background-color: #d6c9ff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 /*# sourceMappingURL=menu.css.map */

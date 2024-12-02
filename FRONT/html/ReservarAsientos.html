@@ -6,7 +6,6 @@
     <title>Reservar Asientos - Cinema Paradiso</title>
     <link rel="stylesheet" href="../build/menu.css">
 
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
@@ -14,44 +13,22 @@
 <body>
     <!-- Logo -->
     <header class="header">
-        <div class="logo">
-            <img src="../imgs/logo.png" alt="logo" class="logo-image">
-        </div>
         <nav class="menu">
             <a href="../html/Peliculas.html">PELICULAS</a>
-            <a href="#">MENU</a>
-            <a href="#">CINES</a>
+            <a href="../html/main.html">MENU</a>
+            <a href="../html/main.html#ENCUENTRANOS"><img src="../imgs/chincheta.png" alt="chincheta" class="chincheta"></a>
         </nav>
     </header>
 
     <main class="main-content">
         <!-- Detalles de la Película -->
-        <h1 class="movie-title">Dune2</h1>
         <div class="movie-layout">
-            <div class="movie-poster">
-                <img src="../imgs/Dune2.jpg" alt="Póster de Dune2" class="movie-poster-image">
-            </div>
-            <div class="movie-details">
-                <p><strong>Cine:</strong></p> 
-                <p>Nombre_Cine</p>
-                <p><strong>Horario:</strong></p>
-                <p>Horario_Cine</p>
-            </div>
-            
-            <div class="movie-trailer">
-                <h2>Trailer</h2>
-                <iframe src="https://www.youtube.com/embed/VIDEO_ID" 
-                        title="Trailer de Dune2" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                        allowfullscreen>
-                </iframe>
-            </div>
+            <!-- Aquí se cargarán los detalles de la película desde el JS -->
         </div>
-
+    
         <div class="seating-section">
             <h2>Selecciona tus asientos</h2>
-            
+    
             <div class="seat-legend">
                 <div class="legend-item">
                     <span class="seat-item free"></span> Libre
@@ -62,48 +39,41 @@
                 <div class="legend-item">
                     <span class="seat-item selected"></span> Seleccionado
                 </div>
-                <div class="legend-item">
-                    <span class="seat-item vip"></span> VIP
-                </div>
             </div>
-            
+    
             <div class="screen">Pantalla</div>
-            
+    
+            <!-- Área donde se mostrarán los asientos -->
             <div id="seatingArea" class="seating-area"></div>
-            <button id="buySeatsButton" class="purchase-button">Comprar Asientos</button>
-        
+            
+            <!-- Contenedor para mostrar los asientos seleccionados y total -->
+            <div class="seating-right">
+                <div id="selected-seats" class="selected-seats"></div>
+                <div id="total-container" class="total-container"></div>
+                <button id="buySeatsButton" class="purchase-button">Comprar Asientos</button>
+            </div>
         </div>
     </main>
     
+    
     <footer class="footer">
-        <div class="footer__content">
-            <div class="footer__column">
-                <p class="footer__text">Quiénes somos</p>
-                <p class="footer__text">Únete a nuestro equipo</p>
-                <p class="footer__text">Servicios Corporativos</p>
-                <p class="footer__text">Atención al cliente</p>
-                <p class="footer__text">Colaboraciones Institucionales</p>
-                <p class="footer__text">Organización de Eventos</p>
+        <div class="footer-links">
+            <div class="column">
+                <p><a href="../html/AvisoLegal.html">Aviso Legal</a></p>
+                <p><a href="../html/DenunciaIrregularidades.html">Denuncia de Irregularidades</a></p>
             </div>
-            <div class="footer__column">
-                <p class="footer__text">Salas Premium</p>
-                <p class="footer__text">Experiencia VIP</p>
-                <p class="footer__text">Programación Infantil y Escolar</p>
-                <p class="footer__text">Festivales y Ciclos</p>
-                <p class="footer__text">Blog de Cinema Paradiso</p>
+            <div class="column">
+                <img src="../imgs/logo_black.png" class="logo_negro">
             </div>
-            <div class="footer__column">
-                <p class="footer__text">Aviso Legal</p>
-                <p class="footer__text">Condiciones de Compra</p>
-                <p class="footer__text">Política de Privacidad</p>
-                <p class="footer__text">Política de Cookies</p>
-                <p class="footer__text">Compromiso Social y Ética Empresarial</p>
-                <p class="footer__text">Política de Denuncia de Irregularidades</p>
+            <div class="column">
+                <p><a href="https://www.instagram.com/">Instagram</a></p>
+                <p><a href="https://www.facebook.com/login/?locale=es_ES">Facebook</a></p>
+                <p><a href="https://github.com/fran253/CINE-BACK">Github</a></p>
             </div>
         </div>
     </footer>
 
     <!-- Importación del script de asientos -->
-    <script src="../js/reservaasientos.js"></script>
+    <script type="Module" src="../js/reservaasientos.js"></script>
 </body>
 </html>

@@ -1,115 +1,133 @@
-// Variables
 $background-color: #0f1a34;
 $text-color: #fff;
-$highlight-color: #fdd835;
-$rating-color: #00c853;
+$highlight-color: #F6C80F;
+$rating-color: #F6C80F;
 $schedule-bg-color: #5673ea;
 $schedule-hover-color: #819aff;
+$shadow-color: rgba(0, 0, 0, 0.2);
 $gap-small: 10px;
-$gap-large: 20px;
-$max-width: 900px;
+$gap-medium: 20px;
+$gap-large: 40px;
+$max-width: 1200px;
 $font-size-small: 12px;
 $font-size-medium: 14px;
 $font-size-large: 18px;
-$font-size-xlarge: 22px;
+$font-size-xlarge: 24px;
 
-
-// Main Content
 .main-content {
-  max-width: 100%;
-  padding: $gap-small;
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: $gap-large;
+  display: flex;
+  flex-direction: column;
+  gap: $gap-large;
 
   @media (min-width: 768px) {
-    max-width: $max-width;
-    margin: $gap-small auto;
-    padding: $gap-large;
+    gap: $gap-large;
   }
 }
 
-// Movie Container
 .movie-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
   gap: $gap-large;
-  width: 100%;
-  padding: $gap-large;
+  justify-content: center;
+  align-items: flex-start;
 
-  &__poster-details {
-    display: flex;
-    gap: $gap-small;
-    width: 100%;
-    font-family: "Jura", sans-serif;
+    &__poster-details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: $gap-large;
+      width: 100%;
 
-
-
-    @media (min-width: 768px) {
-      display: table;
-      margin: 0 auto;
-      max-width: $max-width;
-      grid-template-columns: repeat(1, 1fr);
-      
+      @media (min-width: 768px) {
+        flex-direction: row;
+        justify-content: space-between;
+      }
     }
 
-    td {
-      vertical-align: top;
-      padding: $gap-small;
-    }
+    &__poster-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+
+        img {
+          width: 100%;
+          max-width: 350px;
+          height: auto;
+          border-radius: 15px;
+          box-shadow: 0 4px 8px $shadow-color;
+          transition: transform 0.3s ease;
+
+          &:hover {
+            transform: scale(1.05);
+          }
+      }
   }
 
-  &__poster-image {
-    width: 100%;
-    border-radius: 10px;
+  &__details {
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: $gap-medium;
+    text-align: left;
 
-    @media (min-width: 768px) {
-      width: auto;
-      grid-template-columns: repeat(1, 1fr);
+    &__title {
+      font-size: $font-size-xlarge;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: $gap-small;
 
+      span {
+        color: #0f1a34;
+        background-color: $rating-color;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: $font-size-small;
+      }
+    }
+
+    &__info {
+      font-size: $font-size-medium;
+
+      &-label {
+        font-weight: bold;
+        color: $highlight-color;
+      }
     }
   }
 
   &__synopsis {
-    text-align: left;
     margin-top: $gap-large;
-    padding: 0 $gap-small;
+    text-align: left;
     line-height: 1.8;
+    padding: $gap-large;
+    background-color: $background-color;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px $shadow-color;
+
+    h3 {
+      font-size: $font-size-large;
+      font-weight: bold;
+      margin-bottom: $gap-small;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background-color: $highlight-color;
+      }
+    }
   }
 }
 
-.movie-details {
-  text-align: left;
-  margin-top: $gap-small;
-  line-height: 1.8;
-  padding-left: 20px;
-
-  &__title {
-    font-size: $font-size-xlarge;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    gap: $gap-small;
-    justify-content: left;
-    margin-bottom: 30px;
-  }
-
-  &__rating {
-    background-color: $rating-color;
-    padding: 4px 8px;
-    border-radius: 5px;
-    font-size: $font-size-small;
-  }
-
-  &__info {
-    font-size: $font-size-medium;
-    margin-bottom: 15px;
-  }
-
-  &__info-label {
-    font-weight: bold;
-  }
-}
-
-// Schedule Section
 .schedule-section {
   margin-top: $gap-large;
   width: 100%;
@@ -123,8 +141,10 @@ $font-size-xlarge: 22px;
 
   &__grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: $gap-small;
+    justify-content: center; 
+    padding: $gap-small;
   }
 
   &__item {
@@ -134,83 +154,16 @@ $font-size-xlarge: 22px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
     padding: $gap-small;
-    border-radius: 5px;
+    border-radius: 8px;
     font-size: $font-size-medium;
     font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+
 
     &:hover {
       background-color: $schedule-hover-color;
+      transform: scale(1.05);
     }
-  }
-}
-
-// Footer
-.footer {
-  background-color: $highlight-color;
-  padding: 30px 15px;
-  text-align: center;
-  color: $background-color;
-
-  &__content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: $gap-large;
-    max-width: $max-width;
-    margin: 0 auto;
-
-    @media (min-width: 768px) {
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-  }
-
-  &__column {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    min-width: 150px;
-    align-items: center;
-
-    @media (min-width: 768px) {
-      align-items: flex-start;
-    }
-  }
-
-  &__text {
-    font-size: $font-size-small;
-    color: $background-color;
-    margin: 0;
-    cursor: default;
-
-    &:hover {
-      color: #333;
-    }
-
-    @media (min-width: 768px) {
-      font-size: $font-size-medium;
-    }
-  }
-}
-
-// Media Queries para pantallas más grandes
-@media (min-width: 768px) {
-  .movie-container__poster-details {
-    display: table;
-    margin: 0 auto;
-    width: auto;
-    text-align: left;
-
-    td {
-      padding: $gap-large;
-    }
-  }
-
-  .nav__list {
-    gap: 30%;
   }
 }

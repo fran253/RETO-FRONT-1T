@@ -24,26 +24,41 @@
 <body>
 
     <header class="header">
-        <div class="logo"><a href="../html/main.html"><img src="../imgs/logo.png" alt="logo" class="logo-image"></a></div>
+        <div class="logo">
+            <img src="../imgs/logo.png" alt="logo" class="logo-image">
+        </div>
         <nav class="menu">
-            <a href="#Estrenos">ESTRENOS</a>
-            <a href="#Aventura">AVENTURA</a>
-            <a href="#Terror">TERROR</a>
-            <a href="#CienciaFiccion">CIENCIA FICCIÓN</a>            
-            <a href="#Accion">ACCIÓN</a>
-            <a href="#Animacion">ANIMACIÓN</a>
-
-
+            <a href="../html/Peliculas.html">PELICULAS</a>
+            <a href="../html/main.html">MENU</a>
+            <a href="../html/main.html#ENCUENTRANOS"><img src="../imgs/chincheta.png" alt="chincheta" class="chincheta"></a>
         </nav>
     </header>
+    
+    <div class="dropdown-menu">
+        <button class="dropdown-button">
+            <img src="../imgs/Categoria.png" alt="Desplegar categorías">
+        </button>
+        <div class="dropdown-content hidden">
+            <ul>
+                <li><a href="#Estrenos">Estrenos</a></li>
+                <li><a href="#Clasicos">Clásicos</a></li>
+                <li><a href="#Terror">Terror</a></li>
+                <li><a href="#DeDirector">De Director</a></li>
+                <li><a href="#Superheroes">Superhéroes</a></li>
+                <li><a href="#Animacion">Animación</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    
 
     <section class="Estrenos" id="Estrenos">
         <h2>Estrenos</h2>
         <div id="owl-pelis-estrenos" class="owl-carousel owl-theme"></div>
     </section>
 
-    <section class="Aventura" id="Aventura">
-        <h2>Aventura</h2>
+    <section class="Aventura" id="Clasicos">
+        <h2>Clásicos</h2>
         <div id="owl-pelis-aventura" class="owl-carousel owl-theme"></div>
     </section>
 
@@ -52,13 +67,13 @@
         <div id="owl-pelis-terror" class="owl-carousel owl-theme"></div>
     </section>
     
-    <section class="CienciaFiccion" id="CienciaFiccion">
-        <h2>Ciencia Ficción</h2>
+    <section class="CienciaFiccion" id="DeDirector">
+        <h2>De Director</h2>
         <div id="owl-pelis-cienciaficcion" class="owl-carousel owl-theme"></div>
     </section>
     
-    <section class="Accion" id="Accion">
-        <h2>Accion</h2>
+    <section class="Accion" id="Superheroes">
+        <h2>Superhéroes</h2>
         <div id="owl-pelis-accion" class="owl-carousel owl-theme"></div>
     </section>
 
@@ -71,34 +86,23 @@
     <footer class="footer">
         <div class="footer-links">
             <div class="column">
-                <p>Quiénes somos</p>
-                <p>Únete a nuestro equipo</p>
-                <p>Servicios Corporativos</p>
-                <p>Atención al cliente</p>
-                <p>Colaboraciones Institucionales</p>
-                <p>Organización de Eventos</p>
+                <p><a href="../html/AvisoLegal.html">Aviso Legal</a></p>
+                <p><a href="../html/DenunciaIrregularidades.html">Denuncia de Irregularidades</a></p>
             </div>
             <div class="column">
-                <p>Salas Premium</p>
-                <p>Experiencia VIP</p>
-                <p>Programación Infantil y Escolar</p>
-                <p>Festivales y Ciclos</p>
-                <p>Blog de Cinema Paradiso</p>
+                <img src="../imgs/logo_black.png" class="logo_negro">
             </div>
             <div class="column">
-                <p>Aviso Legal</p>
-                <p>Condiciones de Compra</p>
-                <p>Política de Privacidad</p>
-                <p>Política de Cookies</p>
-                <p>Compromiso Social y Ética Empresarial</p>
-                <p>Política de Denuncia de Irregularidades</p>
+                <p><a href="https://www.instagram.com/">Instagram</a></p>
+                <p><a href="https://www.facebook.com/login/?locale=es_ES">Facebook</a></p>
+                <p><a href="https://github.com/fran253/CINE-BACK">Github</a></p>
             </div>
         </div>
     </footer>
     
     
 
-    <script src="../js/FiltradoPeliculasCategoria.js"></script>
+    <script type="module"  src="../js/FiltradoPeliculasCategoria.js"></script>
     <script src="../js/carousel.js"></script>
 
 </body>
