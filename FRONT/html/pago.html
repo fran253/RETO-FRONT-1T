@@ -5,11 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Página de pago</title>
   <link rel="stylesheet" href="../build/menu.css">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
-
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="header">
@@ -17,48 +15,52 @@
         <nav class="menu">
             <a href="../html/Peliculas.html">PELICULAS</a>
             <a href="../html/main.html">MENU</a>
-            <a href="#"><img src="../imgs/chincheta.png" alt="chincheta" class="chincheta"></a>
+            <a href="../html/main.html#ENCUENTRANOS"><img src="../imgs/chincheta.png" alt="chincheta" class="chincheta"></a>
         </nav>
     </header>
 
+    <div class="contenedor__principal">
+        <div class="contenedor__info"></div>
 
-  <div class="contenedor__pago">
-    <div class="imagenes__pago">
-      <div class="imagen__pago"><img src="../imgs/Visa.jpg" alt="Visa"></div>
-      <div class="imagen__pago"><img src="../imgs/mastercard.png" alt="Mastercard"></div>
-      <div class="imagen__pago"><img src="../imgs/paysafecard.png" alt="Paysafecard"></div>
-      <div class="imagen__pago"><img src="../imgs/PayPal.png" alt="PayPal"></div>
-      <div class="imagen__pago"><img src="../imgs/googlepay.png" alt="Google Pay"></div>
-      <div class="imagen__pago"><img src="../imgs/amazon-pay.jpg" alt="Apple Pay"></div>
+        <div class="contenedor__pago">
+            <div class="imagenes__pago">
+                <div class="imagen__pago"><img src="../imgs/Visa.jpg" alt="Visa"></div>
+                <div class="imagen__pago"><img src="../imgs/mastercard.png" alt="Mastercard"></div>
+                <div class="imagen__pago"><img src="../imgs/paysafecard.png" alt="Paysafecard"></div>
+                <div class="imagen__pago"><img src="../imgs/PayPal.png" alt="PayPal"></div>
+                <div class="imagen__pago"><img src="../imgs/googlepay.png" alt="Google Pay"></div>
+                <div class="imagen__pago"><img src="../imgs/amazon-pay.jpg" alt="Apple Pay"></div>
+            </div>
+            <div class="terminosycondiciones">                
+                <a href="../html/AvisoLegal.html"><p>Terminos y condiciones</p></a>
+            </div>
+            <div class="aceptar__pago">
+                <input type="checkbox" id="aceptar-condiciones__pago">
+                <label for="aceptar-condiciones__pago">He leído y acepto que Fran y Diego roben mi tarjeta</label>
+            </div>
+            <div class="total__pago">
+                <button onclick="location.reload();">Pagar</button>
+            </div>
+        </div>
     </div>
-    <div class="aceptar__pago">
-      <input type="checkbox" id="aceptar-condiciones__pago">
-      <label for="aceptar-condiciones__pago">He leído y acepto que Fran y Diego roben mi tarjeta</label>
-    </div>
-    <div class="total__pago">
-      <p>Precio total a pagar</p>
-      <p>12,99€</p>
-      <button>Pagar</button>
-    </div>
-  </div>
 
     <footer class="footer">
-      <div class="footer-links">
-          <div class="column">
-              <p>Aviso Legal</p>
-              <p>Política de Privacidad</p>
-              <p>Política de Denuncia de Irregularidades</p>
-          </div>
-          <div class="column">
-              <img src="../imgs/logo_black.png" class="logo_negro">
-          </div>
-          <div class="column">
-              <p>Instagram</p>
-              <p>Facebook</p>
-              <p></p>
-          </div>
-      </div>
-  </footer>
-  <script src="../js/pago.js"></script>
+        <div class="footer-links">
+            <div class="column">
+                <p><a href="../html/AvisoLegal.html">Aviso Legal</a></p>
+                <p><a href="../html/DenunciaIrregularidades.html">Denuncia de Irregularidades</a></p>
+            </div>
+            <div class="column">
+                <img src="../imgs/logo_black.png" class="logo_negro">
+            </div>
+            <div class="column">
+                <p><a href="https://www.instagram.com/">Instagram</a></p>
+                <p><a href="https://www.facebook.com/login/?locale=es_ES">Facebook</a></p>
+                <p><a href="https://github.com/fran253/CINE-BACK">Github</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="../js/pago.js"></script>
 </body>
 </html>

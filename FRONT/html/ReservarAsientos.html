@@ -6,7 +6,6 @@
     <title>Reservar Asientos - Cinema Paradiso</title>
     <link rel="stylesheet" href="../build/menu.css">
 
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
@@ -17,19 +16,19 @@
         <nav class="menu">
             <a href="../html/Peliculas.html">PELICULAS</a>
             <a href="../html/main.html">MENU</a>
-            <a href="#"><img src="../imgs/chincheta.png" alt="chincheta" class="chincheta"></a>
+            <a href="../html/main.html#ENCUENTRANOS"><img src="../imgs/chincheta.png" alt="chincheta" class="chincheta"></a>
         </nav>
     </header>
 
     <main class="main-content">
         <!-- Detalles de la Película -->
         <div class="movie-layout">
-            
+            <!-- Aquí se cargarán los detalles de la película desde el JS -->
         </div>
-
+    
         <div class="seating-section">
             <h2>Selecciona tus asientos</h2>
-            
+    
             <div class="seat-legend">
                 <div class="legend-item">
                     <span class="seat-item free"></span> Libre
@@ -41,29 +40,35 @@
                     <span class="seat-item selected"></span> Seleccionado
                 </div>
             </div>
-            
+    
             <div class="screen">Pantalla</div>
-            
+    
+            <!-- Área donde se mostrarán los asientos -->
             <div id="seatingArea" class="seating-area"></div>
-            <button id="buySeatsButton" class="purchase-button">Comprar Asientos</button>
-        
+            
+            <!-- Contenedor para mostrar los asientos seleccionados y total -->
+            <div class="seating-right">
+                <div id="selected-seats" class="selected-seats"></div>
+                <div id="total-container" class="total-container"></div>
+                <button id="buySeatsButton" class="purchase-button">Comprar Asientos</button>
+            </div>
         </div>
     </main>
+    
     
     <footer class="footer">
         <div class="footer-links">
             <div class="column">
-                <p>Aviso Legal</p>
-                <p>Política de Privacidad</p>
-                <p>Política de Denuncia de Irregularidades</p>
+                <p><a href="../html/AvisoLegal.html">Aviso Legal</a></p>
+                <p><a href="../html/DenunciaIrregularidades.html">Denuncia de Irregularidades</a></p>
             </div>
             <div class="column">
                 <img src="../imgs/logo_black.png" class="logo_negro">
             </div>
             <div class="column">
-                <p>Instagram</p>
-                <p>Facebook</p>
-                <p></p>
+                <p><a href="https://www.instagram.com/">Instagram</a></p>
+                <p><a href="https://www.facebook.com/login/?locale=es_ES">Facebook</a></p>
+                <p><a href="https://github.com/fran253/CINE-BACK">Github</a></p>
             </div>
         </div>
     </footer>

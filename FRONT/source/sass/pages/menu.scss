@@ -96,7 +96,7 @@
         gap: 40px;
 
         .item {
-            height: 400px;
+            height: 350px;
             background: #446bcd;
             margin: 10px;
             color: #fff;
@@ -169,3 +169,26 @@
         }
     }
 }
+
+.map-section {
+    width: 70%;
+    background-color: #002244; /* Fondo oscuro */
+    padding: 20px;
+    border: 3px solid #F6C80F;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 15%;
+
+    h2 {
+        color: #F6C80F; /* Color amarillo para el título */
+        margin-bottom: 15px;
+        font-size: 24px;
+    }
+
+    .map-container {
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+}
+
