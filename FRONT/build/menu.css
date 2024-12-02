@@ -56,7 +56,7 @@ body {
   text-decoration: none;
   font-size: 1rem;
   font-family: "Jura", sans-serif;
-  margin: 0 60px;
+  margin: 0 50px;
 }
 .header .menu a:hover {
   color: #333333;
@@ -242,6 +242,7 @@ body {
     padding-top: 10%;
   }
   .info-section .info-content .info-logo-text .info-description {
+    padding-top: 40%;
     font-size: 0.9rem;
   }
 }
