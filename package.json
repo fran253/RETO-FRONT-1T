@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "express": "^4.21.1",
+    "jsdom": "^25.0.1",
+    "node-fetch": "^3.3.2",
+    "node-localstorage": "^3.0.5"
+  }
+}
