@@ -11,92 +11,84 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
 
-
     <title>Cinema Paradiso</title>
-    <link rel="stylesheet" href="../build/menu.css">
-    
+    <link rel="stylesheet" href="/css/menu.css"> <!-- Ajuste de la ruta para CSS -->
 
     <link href="https://fonts.googleapis.com/css2?family=Itim&display=swap" rel="stylesheet">
-    <script type="module" src="../js/main.js"></script>
-    <script src="../js/config.js"></script>
-     <!-- CARRUSEL-->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-    <script src="../js/carousel.js"></script>
+    <script type="module" src="/js/main.js"></script> <!-- Ajuste de la ruta para JS -->
+    <script src="/js/config.js"></script> <!-- Ajuste de la ruta para JS -->
+    <!-- CARRUSEL -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="/js/carousel.js"></script> <!-- Ajuste de la ruta para JS -->
 </head>
 <body>
     <header class="header">
-        <div class="logo"><img src="../imgs/logo.png" alt="logo" class="logo-image"></div>
+        <div class="logo"><img src="/images/logo.png" alt="logo" class="logo-image"></div> <!-- Ajuste de la ruta para imágenes -->
         <nav class="menu">
-            <a href="../html/Peliculas.html">PELICULAS</a>
+            <a href="/Peliculas">PELICULAS</a> <!-- Ajuste de la ruta para HTML dinámico -->
             <a href="#">MENU</a>
-            <a href="#ENCUENTRANOS"><img src="../imgs/chincheta.png" alt="chincheta" class="chincheta"></a>
+            <a href="#ENCUENTRANOS"><img src="/images/chincheta.png" alt="chincheta" class="chincheta"></a> <!-- Ajuste de la ruta para imágenes -->
         </nav>
     </header>
 
     <section class="banner"> 
         <div id="owl-demo" class="owl-carousel owl-theme">
-            <a href="../html/PeliculaHorariosYSala.html?id=33">
+            <a href="/PeliculaHorariosYSala?id=33">
                 <div class="item">
-                    <img src="../imgs/bannerspiderman.jpg" alt="AnillosSeñor">
+                    <img src="/images/bannerspiderman.jpg" alt="AnillosSeñor">
                 </div>
             </a>
-            <a href="../html/PeliculaHorariosYSala.html?id=15">
+            <a href="/PeliculaHorariosYSala?id=15">
                 <div class="item">
-                    <img src="../imgs/bannerIT.jpg" alt="RedOneBanner">
+                    <img src="/images/bannerIT.jpg" alt="RedOneBanner">
                 </div>
             </a>
-            <a href="../html/PeliculaHorariosYSala.html?id=28">
+            <a href="/PeliculaHorariosYSala?id=28">
                 <div class="item">
-                    <img src="../imgs/bannerThebatman.PNG" alt="VenomBanner">
+                    <img src="/images/bannerThebatman.PNG" alt="VenomBanner">
                 </div>
             </a>
         </div>
     </section>
-
 
     <section class="info-section">
         <div class="info-content">
             <div class="info-logo-text">
-                <img src="../imgs/logo.png" alt="Cinema Paradiso Logo" class="info-logo">
+                <img src="/images/logo.png" alt="Cinema Paradiso Logo" class="info-logo"> <!-- Ajuste de la ruta para imágenes -->
                 <p class="info-description">¿Ya no hay buenas películas en cines? ¡Tonterías!</p>
             </div>
-            <img src="../imgs/cine.jpg" alt="Cinema Screen" class="info-image">
+            <img src="/images/cine.jpg" alt="Cinema Screen" class="info-image"> <!-- Ajuste de la ruta para imágenes -->
         </div>
     </section>
-    
-    
-    
-
     <section class="cartelera" id="cartelera">
         <h2>Películas</h2>
         <div id="owl-pelis" class="owl-carousel owl-theme"></div>
     </section>
     
-    <section  id="ENCUENTRANOS" class="map-section">
+    <section id="ENCUENTRANOS" class="map-section">
         <h2>Encuéntranos</h2>
         <div class="map-container">
             <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d313.1857566905388!2d-0.8756807951899581!3d41.68723724794777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd59137a98e298bd%3A0xc5fa669cea647368!2sKing%20Kebab!5e0!3m2!1ses!2ses!4v1733051300947!5m2!1ses!2ses" 
-                width="1200" 
-                height="450" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11918.400253559923!2d-0.8821436285128677!3d41.685980064894295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd5913798ef9c9e7%3A0xf524b71fd30225f2!2sParque%20Goya%2C%2050015%20Zaragoza!5e0!3m2!1ses!2ses!4v1733239436617!5m2!1ses!2ses" 
+            width="1200"
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>   
         </div>
     </section>
 
-    
     <footer class="footer">
         <div class="footer-links">
             <div class="column">
-                <p><a href="../html/AvisoLegal.html">Aviso Legal</a></p>
-                <p><a href="../html/DenunciaIrregularidades.html">Denuncia de Irregularidades</a></p>
+                <p><a href="/AvisoLegal">Aviso Legal</a></p> <!-- Ajuste de la ruta para HTML dinámico -->
+                <p><a href="/DenunciaIrregularidades">Denuncia de Irregularidades</a></p> <!-- Ajuste de la ruta para HTML dinámico -->
             </div>
             <div class="column">
-                <img src="../imgs/logo_black.png" class="logo_negro">
+                <img src="/images/logo_black.png" class="logo_negro"> <!-- Ajuste de la ruta para imágenes -->
             </div>
             <div class="column">
                 <p><a href="https://www.instagram.com/">Instagram</a></p>
