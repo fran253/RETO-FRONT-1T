@@ -4,23 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reservar Asientos - Cinema Paradiso</title>
-    <link rel="stylesheet" href="/css/menu.css"> <!-- Ajuste de la ruta -->
+    <link rel="stylesheet" href="/css/menu.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Logo -->
     <header class="header">
-        <div class="logo"><img src="/images/logo.png" alt="logo" class="logo-image"></div> <!-- Ajuste de la ruta -->
         <nav class="menu">
-            <a href="/Peliculas">PELICULAS</a> <!-- Ajuste de la ruta -->
-            <a href="/main">MENU</a> <!-- Ajuste de la ruta -->
-            <a href="/main#ENCUENTRANOS"><img src="/images/chincheta.png" alt="chincheta" class="chincheta"></a> <!-- Ajuste de la ruta -->
+            <a href="/Peliculas.html">PELICULAS</a>
+            <a href="/main.html">MENU</a>
+            <a href="/main.html#ENCUENTRANOS"><img src="/images/chincheta.png" alt="chincheta" class="chincheta"></a>
         </nav>
     </header>
 
     <main class="main-content">
+        <!-- Detalles de la Película -->
         <div class="movie-layout">
             <!-- Aquí se cargarán los detalles de la película desde el JS -->
         </div>
@@ -42,24 +43,49 @@
     
             <div class="screen">Pantalla</div>
     
+            <!-- Área donde se mostrarán los asientos -->
             <div id="seatingArea" class="seating-area"></div>
             
+            <!-- Contenedor para mostrar los asientos seleccionados y total -->
             <div class="seating-right">
                 <div id="selected-seats" class="selected-seats"></div>
                 <div id="total-container" class="total-container"></div>
+
+                <div class="contenedor__principal">            
+                    <div class="contenedor__pago">
+                        <div class="imagenes__pago">
+                            <div class="imagen__pago"><img src="/images/Visa.jpg" alt="Visa"></div>
+                            <div class="imagen__pago"><img src="/images/mastercard.png" alt="Mastercard"></div>
+                            <div class="imagen__pago"><img src="/imgs/paysafecard.png" alt="Paysafecard"></div>
+                            <div class="imagen__pago"><img src="/iamges/PayPal.png" alt="PayPal"></div>
+                            <div class="imagen__pago"><img src="/images/googlepay.png" alt="Google Pay"></div>
+                            <div class="imagen__pago"><img src="/images/amazon-pay.jpg" alt="Apple Pay"></div>
+                        </div>
+                        <div class="terminosycondiciones">                
+                            <a href="/AvisoLegal.html"><p>Terminos y condiciones</p></a>
+                        </div>
+                        <div class="aceptar__pago">
+                            <input type="checkbox" id="aceptar-condiciones__pago">
+                            <label for="aceptar-condiciones__pago">He leído y acepto que Fran y Diego roben mi tarjeta</label>
+                        </div>
+                    </div>
+                </div>
+
+
                 <button id="buySeatsButton" class="purchase-button">Comprar Asientos</button>
             </div>
         </div>
     </main>
     
+    
     <footer class="footer">
         <div class="footer-links">
             <div class="column">
-                <p><a href="/AvisoLegal">Aviso Legal</a></p> <!-- Ajuste de la ruta -->
-                <p><a href="/DenunciaIrregularidades">Denuncia de Irregularidades</a></p> <!-- Ajuste de la ruta -->
+                <p><a href="/AvisoLegal.html">Aviso Legal</a></p>
+                <p><a href="/DenunciaIrregularidades.html">Denuncia de Irregularidades</a></p>
             </div>
             <div class="column">
-                <img src="/images/logo_black.png" class="logo_negro"> <!-- Ajuste de la ruta -->
+                <img src="/images/logo_black.png" class="logo_negro">
             </div>
             <div class="column">
                 <p><a href="https://www.instagram.com/">Instagram</a></p>
@@ -69,6 +95,7 @@
         </div>
     </footer>
 
-    <script type="module" src="/js/reservaasientos.js"></script> <!-- Ajuste de la ruta -->
+    <!-- Importación del script de asientos -->
+    <script type="Module" src="/js/reservaasientos.js"></script>
 </body>
 </html>
