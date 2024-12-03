@@ -1,4 +1,4 @@
-import config from "./config.js"
+import config from "../js/config.js"
 document.addEventListener("DOMContentLoaded", function () {
     const owlPelis = document.querySelector("#owl-pelis");
 
@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 itemDiv.classList.add("item");
 
                 itemDiv.innerHTML = `
-                    <a href="/PeliculaHorariosYSala?id=${pelicula.idPelicula}" class="pelicula-link"> 
+                    <a href="../html/PeliculaHorariosYSala.html?id=${pelicula.idPelicula}" class="pelicula-link"> 
                         <div class="pelicula">
                             <img src="${pelicula.imagen}" alt="${pelicula.nombre}">
                             <h3>${pelicula.nombre}</h3>

@@ -145,7 +145,7 @@ if (!idSesion) {
                             console.log(`Asientos ${seatIds.join(", ")} marcados como ocupados`);
                             
                             // Redirigir a la página de pago
-                            window.location.href = `/pago?idSesion=${idSesion}&total=${total}&seats=${seatIds.join(',')}`;
+                            window.location.href = `../html/pago.html?idSesion=${idSesion}&total=${total}&seats=${seatIds.join(',')}`;
                         } else {
                             response.json().then(errorData => {
                                 console.error("Error al marcar los asientos como ocupados:", errorData);
