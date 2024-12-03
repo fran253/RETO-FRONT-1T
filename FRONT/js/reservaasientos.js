@@ -7,6 +7,16 @@ const seatColors = {
     sold: "#dc3545"
 };
 
+//metodos de pago
+const imagenesPago = document.querySelectorAll('.imagen__pago');
+
+imagenesPago.forEach((imagen) => {
+    imagen.addEventListener('click', () => {
+      imagenesPago.forEach((btn) => btn.classList.remove('activo'));
+      imagen.classList.add('activo');
+    });
+  });
+
 
 // Obtener el ID de la sesión directamente de la URL de nuestro ordenador
 const params = new URLSearchParams(window.location.search);
@@ -149,6 +159,7 @@ if (!idSesion) {
                     });
                 });
             }
+
         })
         .catch(error => {
             console.error("Error al cargar los detalles de la sesión:", error);
