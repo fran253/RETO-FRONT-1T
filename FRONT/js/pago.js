@@ -1,14 +1,5 @@
 import config from "./config.js";
-const imagenesPago = document.querySelectorAll('.imagen__pago');
 
-imagenesPago.forEach((imagen) => {
-  imagen.addEventListener('click', () => {
-    // Quitar la clase 'activo' de todos los recuadros
-    imagenesPago.forEach((btn) => btn.classList.remove('activo'));
-    // Agregar la clase 'activo' al recuadro clickeado
-    imagen.classList.add('activo');
-  });
-});
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -50,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Renderizar los datos
             contenedorInfo.innerHTML = `
             <div class="info__top">
-                <img src="${pelicula.imagen || "../imgs/poster-placeholder.jpg"}" alt="Póster de la película" class="info__poster">
+                <img src="${pelicula.imagen || "/images/poster-placeholder.jpg"}" alt="Póster de la película" class="info__poster">
                 <div class="info__details">
                     <h2 class="info__titulo">Película: ${pelicula.nombre || "Título no disponible"}</h2>
                     <p class="info__horario">Horario: ${horario.hora.replace("T", " ")}</p>
