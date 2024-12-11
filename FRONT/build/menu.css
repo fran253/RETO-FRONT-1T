@@ -181,6 +181,58 @@ body {
   border-radius: 20px;
 }
 
+.eliminarOpinion {
+  background-color: #ff4d4d;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 5%;
+}
+.eliminarOpinion:hover {
+  background-color: #cc0000;
+}
+.eliminarOpinion:active {
+  background-color: #990000;
+}
+
+.editarOpinion {
+  background-color: #F6C80F;
+  color: #000000;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.editarOpinion:hover {
+  background-color: #F6C80F;
+}
+.editarOpinion:active {
+  background-color: #e79f02;
+}
+
+.crearopinion {
+  background-color: #0f26f6;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.crearopinion:hover {
+  background-color: #0f26f6;
+}
+.crearopinion:active {
+  background-color: #0f26f6;
+}
+
 .banner {
   width: 100%;
   max-width: 100%;
@@ -769,6 +821,45 @@ body {
   font-weight: bold;
 }
 .schedule-section__item:hover {
+  background-color: #819aff;
+  transform: scale(1.05);
+}
+
+.opinion-section {
+  margin-top: 40px;
+  width: 100%;
+}
+.opinion-section__title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  text-align: center;
+}
+.opinion-section__content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  justify-content: center;
+  padding: 10px;
+}
+.opinion-section__content .opinion {
+  background-color: #5673ea;
+  border-radius: 15%;
+}
+.opinion-section__item {
+  background-color: #5673ea;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.opinion-section__item:hover {
   background-color: #819aff;
   transform: scale(1.05);
 }
