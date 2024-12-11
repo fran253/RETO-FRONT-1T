@@ -154,16 +154,39 @@ if (!idSesion) {
                         alert("Hubo un error al procesar la compra.");
                     });
                 });
-          
-
-
+                const unbuyButton = document.getElementById("unbuySeatsButton");
+                if (unbuyButton) {
+                    unbuyButton.addEventListener("click", () => {
+        
+                        fetch(`${config.API_ENDPOINT}/CinemaParaiso/Sesion/${idSesion}/AsientosDesocupados`, {
+                            method: 'PUT',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(seatIds) // Enviar los IDs de los asientos seleccionados
+                        })
+                        .then(response => {
+                            if (response.ok) {
+                                // Cambiar color de los asientos a ocupado
+                                seatIds.forEach(seatId => {
+                                    const seatDiv = document.getElementById(`seat-${seatId}`);
+                                    if (seatDiv) {
+                                        seatDiv.style.backgroundColor = seatColors.free; // Cambiar color a rojo (ocupado)
+                                    }
+                                });
+                            }else {
+                                response.json().then(errorData => {
+                                    console.error("Error al marcar los asientos como ocupados:", errorData);
+                                    alert("Hubo un problema al marcar los asientos como ocupados.");
+                                });
+                            }
+                        })
+                    });
 
             }
 
-        })
-        .catch(error => {
-            console.error("Error al cargar los detalles de la sesión:", error);
-        });
+        }
+    })
 }
 
 
