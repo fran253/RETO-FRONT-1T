@@ -116,10 +116,6 @@ if (!idSesion) {
             const buyButton = document.getElementById("buySeatsButton");
             if (buyButton) {
                 buyButton.addEventListener("click", () => {
-                    if (selectedSeats.size === 0) {
-                        alert("Por favor seleccione al menos un asiento.");
-                        return;
-                    }
 
                     // Enviar la solicitud para marcar los asientos como ocupados
                     const seatIds = Array.from(selectedSeats); 
@@ -146,7 +142,7 @@ if (!idSesion) {
                             
                             // Redirigir a la página de pago
                             window.location.href = `/pago?idSesion=${idSesion}&total=${total}&seats=${seatIds.join(',')}`;
-                        } else {
+                        }else {
                             response.json().then(errorData => {
                                 console.error("Error al marcar los asientos como ocupados:", errorData);
                                 alert("Hubo un problema al marcar los asientos como ocupados.");
@@ -158,6 +154,10 @@ if (!idSesion) {
                         alert("Hubo un error al procesar la compra.");
                     });
                 });
+          
+
+
+
             }
 
         })

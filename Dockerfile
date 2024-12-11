@@ -3,5 +3,5 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm install --production
 COPY . .
-EXPOSE 80
+EXPOSE 2562
 CMD ["node", "FRONT/js/server.js"]
