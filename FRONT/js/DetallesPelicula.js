@@ -11,6 +11,15 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
+    //Formatear fecha
+    function formatFechaHora(fechaInicio) {
+        const fecha = new Date(fechaInicio);
+        const dia = fecha.getDate().toString().padStart(2, '0');
+        const mes = (fecha.getMonth() + 1).toString().padStart(2, '0');
+        const año = fecha.getFullYear();
+        return ` ${dia}/${mes}/${año}`;
+    }
+
     // usamos dos constantes para ambas urls
     const apiUrl = `${config.API_ENDPOINT}/CinemaParaiso/Pelicula/${peliculaId}`;
     const apiSesionesUrl = `${config.API_ENDPOINT}/CinemaParaiso/Sesion/Pelicula/${peliculaId}`;
@@ -44,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <span class="movie-container__details__info-label">Duración:</span> ${pelicula.duracion} minutos
                             </p>
                             <p class="movie-container__details__info">
-                                <span class="movie-container__details__info-label">Fecha Estreno:</span> ${pelicula.fechaEstreno.replace("T", " ")}
+                                <span class="movie-container__details__info-label">Fecha Estreno:</span> ${formatFechaHora(pelicula.fechaEstreno)}
                             </p>
                             <p class="movie-container__details__info">
                                 <span class="movie-container__details__info-label">Género:</span> ${pelicula.nombreCategoria}
@@ -86,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         scheduleSect.innerHTML += `
                             <a href="../html/ReservarAsientos.html?idPelicula=${sesion.pelicula.idPelicula}&idHorario=${horario.idHorario}&idSesion=${sesion.idSesion}" class="schedule-link">
                                 <div class="schedule-section__item">
-                                    <h3>${horario.fechaInicio.replace("T", " ")}</h3>
+                                    <h3>${formatFechaHora(horario.fechaInicio)}</h3>
                                     <p>Sala ${horario.sala.nombreSala}</p>
                                 </div>
                             </a>
@@ -97,6 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     console.error("Error al cargar las sesiones:", error);
                 });
         }
+
         
         
         
@@ -106,4 +116,80 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("selectedHorarioId");
         localStorage.setItem("selectedHorarioId", idHorario);
     }
+
+    
+
+});
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const htmlOpinion = document.querySelector(".opinion-section__content");
+    const apiOpinionesUrl = `${config.API_ENDPOINT}/CinemaParaiso/Opiniones`;
+
+
+fetch(apiOpinionesUrl)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Error al obtener las opiniones");
+        }
+        return response.json();
+    })
+    .then(opiniones => {
+        opiniones.forEach(opinion => {
+            const itemDiv = document.createElement("div");
+            itemDiv.classList.add("item");
+
+            itemDiv.innerHTML = `
+                    <div class="opinion" id="opinion">
+                        <h3>${opinion.nombreOpinante}  ${opinion.apellidoOpinante}</h3>
+                        <h5>${opinion.opinion}</h5>
+                        <h1>${opinion.valoracion}</h1>
+                        
+                    </div>
+            `;
+
+            htmlOpinion.appendChild(itemDiv);
+        });
+
+        // Emitir evento personalizado cuando las películas están cargadas
+        document.dispatchEvent(new Event("opinionesCargadas"));
+    })
+    .catch(error => {
+        console.error("Error:", error);
+        htmlOpinion.innerHTML = "<p>Error al cargar los complementos</p>";
+    });
+});
+
+document.getElementById('eliminarOpinion').addEventListener('click', async () => {
+    const idOpinion = prompt('Pon el ID del complemento que deseas eliminar:');
+
+    await fetch(`${config.API_ENDPOINT}/CinemaParaiso/Opiniones/${idOpinion}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    });
+});
+
+document.getElementById('crearopinion').addEventListener('click', async () => {
+    const id = prompt('Introduce el ID de la opinion:');
+    const nombre = prompt('Introduce tu nombre:');
+    const apellido = prompt('Introduce tu apellido:');
+    const opinion = prompt('Danos tu opinion:');
+    const valoracion = prompt('Calificanos:');
+
+    await fetch(`${config.API_ENDPOINT}/CinemaParaiso/Opiniones`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            idOpinion: parseInt(id),
+            nombreOpinante: nombre,
+            apellidoOpinante: apellido,
+            opinion: opinion,
+            valoracion: valoracion,
+        }),
+    });
 });
