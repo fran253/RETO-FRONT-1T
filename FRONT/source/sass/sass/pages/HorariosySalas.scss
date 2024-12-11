@@ -1,0 +1,217 @@
+$background-color: #0f1a34;
+$text-color: #fff;
+$highlight-color: #F6C80F;
+$rating-color: #F6C80F;
+$schedule-bg-color: #5673ea;
+$schedule-hover-color: #819aff;
+$shadow-color: rgba(0, 0, 0, 0.2);
+$gap-small: 10px;
+$gap-medium: 20px;
+$gap-large: 40px;
+$max-width: 1200px;
+$font-size-small: 12px;
+$font-size-medium: 14px;
+$font-size-large: 18px;
+$font-size-xlarge: 24px;
+
+.main-content {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: $gap-large;
+  display: flex;
+  flex-direction: column;
+  gap: $gap-large;
+
+  @media (min-width: 768px) {
+    gap: $gap-large;
+  }
+}
+
+.movie-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $gap-large;
+  justify-content: center;
+  align-items: flex-start;
+
+    &__poster-details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: $gap-large;
+      width: 100%;
+
+      @media (min-width: 768px) {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    &__poster-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+
+        img {
+          width: 100%;
+          max-width: 350px;
+          height: auto;
+          border-radius: 15px;
+          box-shadow: 0 4px 8px $shadow-color;
+          transition: transform 0.3s ease;
+
+          &:hover {
+            transform: scale(1.05);
+          }
+      }
+  }
+
+  &__details {
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: $gap-medium;
+    text-align: left;
+
+    &__title {
+      font-size: $font-size-xlarge;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: $gap-small;
+
+      span {
+        color: #0f1a34;
+        background-color: $rating-color;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: $font-size-small;
+      }
+    }
+
+    &__info {
+      font-size: $font-size-medium;
+
+      &-label {
+        font-weight: bold;
+        color: $highlight-color;
+      }
+    }
+  }
+
+  &__synopsis {
+    margin-top: $gap-large;
+    text-align: left;
+    line-height: 1.8;
+    padding: $gap-large;
+    background-color: $background-color;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px $shadow-color;
+
+    h3 {
+      font-size: $font-size-large;
+      font-weight: bold;
+      margin-bottom: $gap-small;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background-color: $highlight-color;
+      }
+    }
+  }
+}
+
+.schedule-section {
+  margin-top: $gap-large;
+  width: 100%;
+
+  &__title {
+    font-size: $font-size-large;
+    font-weight: bold;
+    margin-bottom: $gap-large;
+    text-align: center;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: $gap-small;
+    justify-content: center; 
+    padding: $gap-small;
+  }
+
+  &__item {
+    background-color: $schedule-bg-color;
+    color: $text-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: $gap-small;
+    border-radius: 8px;
+    font-size: $font-size-medium;
+    font-weight: bold;
+
+
+    &:hover {
+      background-color: $schedule-hover-color;
+      transform: scale(1.05);
+    }
+  }
+}
+
+
+.opinion-section {
+  margin-top: $gap-large;
+  width: 100%;
+
+  &__title {
+    font-size: $font-size-large;
+    font-weight: bold;
+    margin-bottom: $gap-large;
+    text-align: center;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: $gap-small;
+    justify-content: center; 
+    padding: $gap-small;
+    .opinion{
+      background-color: #5673ea;
+      border-radius: 15%;
+
+    }
+
+  }
+
+  &__item {
+    background-color: $schedule-bg-color;
+    color: $text-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: $gap-small;
+    border-radius: 8px;
+    font-size: $font-size-medium;
+    font-weight: bold;
+
+
+    &:hover {
+      background-color: $schedule-hover-color;
+      transform: scale(1.05);
+    }
+  }
+}
+

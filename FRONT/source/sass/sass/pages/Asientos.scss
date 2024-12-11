@@ -1,0 +1,239 @@
+// Variables
+$background-color: #0f1a34;
+$text-color: #fff;
+$highlight-color: #fdd835;
+$seat-color: blue;
+$occupied-seat-color: red;
+$selected-seat-color: yellow;
+$button-color: #5673ea;
+$button-hover-color: #819aff;
+$gap-small: 10px;
+$gap-large: 20px;
+$font-size-small: 12px;
+$font-size-medium: 14px;
+$font-size-large: 18px;
+$font-size-xlarge: 32px;
+$font-size-xxlarge: 36px;
+$max-width: 1000px;
+$footer-max-width: 1200px;
+
+// Main Content
+.main-content {
+  max-width: 100%;
+  padding: $gap-large;
+  text-align: center;
+}
+
+// Movie Layout
+.movie-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $gap-large;
+  max-width: $max-width;
+  margin: 0 auto;
+  align-items: start;
+
+  @media (min-width: 767px) {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+  }
+}
+
+// Movie Poster
+.movie-poster img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+// Movie Details
+.movie-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: $gap-large;
+
+  h3 {
+    font-size: 20px;
+    line-height: 1.6;
+
+    @media (min-width: 767px) {
+      font-size: 26px;
+    }
+  }
+
+  .movie-info {
+    font-size: $font-size-medium;
+    line-height: 1.6;
+
+    p {
+      margin: 0;
+    }
+
+    strong {
+      font-size: $font-size-xlarge;
+
+      @media (min-width: 767px) {
+        font-size: $font-size-xxlarge;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: $gap-large;
+    }
+  }
+}
+
+.movie-title {
+  font-size: $font-size-large;
+
+  @media (min-width: 767px) {
+    font-size: $font-size-xlarge;
+  }
+}
+
+// Movie Trailer
+.movie-trailer {
+  width: 100%;
+  text-align: center;
+
+  h2 {
+    font-size: $font-size-medium;
+    margin-bottom: $gap-small;
+
+    @media (min-width: 767px) {
+      font-size: $font-size-large;
+    }
+  }
+
+  iframe {
+    width: 100%;
+    height: 180px;
+
+    @media (min-width: 767px) {
+      height: 200px;
+    }
+  }
+}
+
+// Seating Section
+.seating-section {
+  text-align: center;
+  margin-top: $gap-large;
+
+  .seat-legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: $gap-small;
+
+    @media (min-width: 767px) {
+      gap: $gap-large;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      font-size: $font-size-small;
+
+      @media (min-width: 767px) {
+        font-size: $font-size-medium;
+      }
+
+      .seat-item {
+        width: 15px;
+        height: 15px;
+
+        @media (min-width: 767px) {
+          width: 20px;
+          height: 20px;
+        }
+
+        &.free {
+          background-color: $seat-color;
+        }
+
+        &.occupied {
+          background-color: $occupied-seat-color;
+        }
+
+        &.selected {
+          background-color: $selected-seat-color;
+        }
+
+        &.vip {
+          background-color: $highlight-color;
+        }
+      }
+    }
+  }
+}
+
+// Screen
+.screen {
+  background-color: $button-color;
+  color: $text-color;
+  margin: $gap-large auto;
+  padding: $gap-small;
+  width: 50%;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+.seating-area {
+  display: grid;
+  grid-template-columns: repeat(10, 20px); 
+  gap: $gap-small;
+  justify-content: center;
+
+  @media (min-width: 767px) {
+    grid-template-columns: repeat(10, 25px); 
+  }
+
+  .seat-item {
+    width: 20px; 
+    height: 20px;
+
+    @media (min-width: 767px) {
+      width: 25px; 
+      height: 25px;
+    }
+
+    border-radius: 3px; 
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &.free {
+      background-color: $seat-color;
+    }
+
+    &.occupied {
+      background-color: $occupied-seat-color;
+      cursor: not-allowed;
+    }
+
+    &.selected {
+      background-color: $selected-seat-color;
+    }
+
+    &:hover:not(.occupied) {
+      transform: scale(1.1);
+    }
+  }
+}
+
+// Purchase Button
+.purchase-button {
+  background-color: $button-color;
+  color: $text-color;
+  padding: $gap-small $gap-large;
+  border: none;
+  border-radius: 5px;
+  font-size: $font-size-large;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $button-hover-color;
+  }
+}

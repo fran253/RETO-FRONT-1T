@@ -1,0 +1,25 @@
+// main.scss
+
+// base scss
+@use 'base/reset.scss';
+//@import 'base/variables';
+//@import 'base/mixins';
+
+// layout scss
+@use 'layout/header';
+@use 'layout/footer';
+@use 'layout/navegadorCategoria.scss';
+
+// components scss
+@use 'components/buttons';
+//@import 'components/cards';
+
+
+// pages scss
+@use 'pages/menu';
+@use 'pages/peliculas';
+@use 'pages/Asientos.scss';
+@use 'pages/HorariosySalas.scss';
+@use 'pages/pago.scss';
+@use 'pages/AvisoLegal.scss';
+@use 'pages/Denuncias.scss';

@@ -1,0 +1,213 @@
+.contenedor__principal {
+  display: flex;
+  flex-direction: column;  /* Cambié esto a columna para apilar los elementos */
+  align-items: center;
+  gap: 20px; 
+  padding: 20px; 
+}
+
+.compra__exitosa {
+  background-color: #F6C80F;
+  color: #002244;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 15px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;  /* Ajusta la distancia con el siguiente elemento */
+  text-align: center;
+}
+
+.contenedor__info {
+  border: 3px solid #F6C80F;
+  border-radius: 10px;
+  padding: 15px; 
+  width: 90%; 
+  background-color: #002244;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  gap: 20px;
+}
+
+/* Resto de estilos ya definidos... */
+
+
+.info__top {
+  display: flex;
+  flex-direction: column; 
+  gap: 15px;
+}
+
+.info__poster {
+  width: 100%; 
+  height: auto;
+  border-radius: 8px;
+}
+
+.info__details {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.info__titulo {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.info__horario,
+.info__sala {
+  font-size: 14px;
+}
+
+.info__asientos {
+  font-size: 14px;
+  color: #d0d0d0;
+  line-height: 1.5;
+}
+
+.contenedor__pago {
+  border: 3px solid #F6C80F;
+  border-radius: 10px;
+  padding: 15px;
+  width: 90%; 
+  background-color: #002244;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.terminosycondiciones {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #d0d0d0;
+  font-size: 14px; 
+}
+
+.imagenes__pago {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.imagen__pago {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 90px; 
+  height: 55px;
+  border: 2px solid #ffcc00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &.activo {
+    border-color: #446BCD;
+  }
+}
+
+.aceptar__pago {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+
+  input[type="checkbox"] {
+    margin-right: 8px;
+    width: 16px; 
+    height: 16px;
+  }
+
+  label {
+    font-size: 14px;
+    color: #ffcc00;
+  }
+}
+
+.total__pago {
+  background-color: #336699;
+  padding: 10px;
+  border-radius: 8px;
+  width: 100%;
+  text-align: center;
+
+  p {
+    margin: 5px 0;
+    color: #e6e6e6;
+    font-size: 14px;
+  }
+
+  button {
+    background-color: #0000ff;
+    color: #ffcc00;
+    border: none;
+    padding: 10px 12px; 
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+}
+
+/* Tablets*/
+@media (min-width: 768px) {
+  .contenedor__principal {
+    flex-direction: row; 
+    justify-content: center;
+    gap: 20px; 
+    padding: 30px;
+  }
+
+  .contenedor__info,
+  .contenedor__pago {
+    width: 45%; 
+  }
+
+  .info__poster {
+    width: 40%; 
+  }
+
+  .imagenes__pago {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Ordenador */
+@media (min-width: 1024px) {
+  .contenedor__info,
+  .contenedor__pago {
+    width: 35%; 
+    margin-bottom: 10%;
+  }
+
+  .info__top {
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .info__poster {
+    width: 35%;
+  }
+
+  .imagenes__pago {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .terminosycondiciones {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 16px;
+  }
+
+  .total__pago button {
+    font-size: 16px;
+    padding: 12px 18px;
+  }
+}

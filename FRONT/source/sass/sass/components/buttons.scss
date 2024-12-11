@@ -1,0 +1,70 @@
+.reserve-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #F6C80F;
+    color: #07172D;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+
+.eliminarOpinion {
+    background-color: #ff4d4d;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer; 
+    transition: background-color 0.3s ease;
+    margin-right: 5%;
+
+    &:hover {
+        background-color: #cc0000; 
+    }
+
+    &:active {
+        background-color: #990000; 
+    }
+}
+.editarOpinion {
+    background-color: #F6C80F;
+    color: #000000; 
+    border: none; 
+    border-radius: 5px; 
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: #F6C80F;
+    }
+
+    &:active {
+        background-color: #e79f02; // Rojo aún más oscuro al hacer clic
+    }
+}
+
+.crearopinion {
+    background-color: #0f26f6;
+    color: #ffffff; 
+    border: none; 
+    border-radius: 5px; 
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: #0f26f6;
+    }
+
+    &:active {
+        background-color: #0f26f6; // Rojo aún más oscuro al hacer clic
+    }
+}
